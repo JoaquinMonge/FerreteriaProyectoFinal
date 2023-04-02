@@ -16,6 +16,7 @@ namespace FerreteriaProyectoFinal.Inventario
     public partial class FrmEditarInventario : Form
     {
         InventarioBs inventario = new InventarioBs();
+        FrmInventario inv = new FrmInventario();
         public FrmEditarInventario()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace FerreteriaProyectoFinal.Inventario
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            FrmInventario inv =new FrmInventario();
+         
             inv.Show();
             this.Close();
         }
@@ -41,6 +42,16 @@ namespace FerreteriaProyectoFinal.Inventario
             this.Close();
             FrmInventario inv = new FrmInventario();
             inv.Show();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int id=Convert.ToInt32(txtID.Text);
+            inventario.EliminarProducto(id);
+            MessageBox.Show("Producto eliminado con exito");
+            this.Close();
+            inv.Show();
+           
         }
     }
 }

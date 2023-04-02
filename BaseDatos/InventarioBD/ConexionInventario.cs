@@ -61,6 +61,22 @@ namespace BaseDatos.InventarioBD
             return true;
         }
 
+        public bool EliminarProducto(int id)
+        {
+            conexion.Open();
+
+            string query = "DELETE from inventario where codigoProducto=@id";
+
+            MySqlCommand comando = new MySqlCommand(query, conexion.GetConexion());
+            comando.Parameters.AddWithValue("@id", id);
+            comando.ExecuteNonQuery();
+
+
+            conexion.Close();
+
+            return true;
+        }
+
 
 
 

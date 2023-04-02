@@ -12,7 +12,7 @@ namespace Modelos.Interfaces.Inventario
         bool RegistrarProducto(InventarioModel model);
         bool ActualizarProducto(InventarioModel model,int id);
 
-        bool EliminarProducto(InventarioModel model);
+        bool EliminarProducto(int id);
 
         bool BuscarProducto(string id, string nombre, int precio);
     }

@@ -46,12 +46,13 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(66, 12);
+            this.btnEliminar.Location = new System.Drawing.Point(322, 248);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(115, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(115, 36);
             this.btnEliminar.TabIndex = 62;
-            this.btnEliminar.Text = "Eliminar cuenta";
+            this.btnEliminar.Text = "Eliminar producto";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtExistencias
             // 
@@ -161,6 +162,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(322, 173);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(57, 20);
             this.txtID.TabIndex = 63;
             // 

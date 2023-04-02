@@ -61,5 +61,21 @@ namespace FerreteriaProyectoFinal.Inventario
                 this.Close();
             }
         }
+
+        private void FrmInventario_Load(object sender, EventArgs e)
+        {
+            dgvInventario.DataSource = inventario.ConsultaDT();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            //con esto se obtiene el datble asociado al dgv
+            DataTable inv = (DataTable)dgvInventario.DataSource;
+
+            inv.DefaultView.RowFilter = String.Format("nombre LIKE '%{0}%'", txtBuscar.Text);
+            txtBuscar.Text = "";
+
+            dgvInventario.DataSource = inv;
+        }
     }
 }

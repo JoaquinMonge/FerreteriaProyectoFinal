@@ -27,9 +27,9 @@ namespace Logica.Inventario
             throw new NotImplementedException();
         }
 
-        public bool EliminarProducto(InventarioModel model)
+        public bool EliminarProducto(int id)
         {
-            throw new NotImplementedException();
+            return cn.EliminarProducto(id);
         }
 
         public bool RegistrarProducto(InventarioModel model)
