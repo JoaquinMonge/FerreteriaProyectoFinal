@@ -57,5 +57,14 @@ namespace FerreteriaProyectoFinal.Usuario
             
 
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            FrmLogin login = new FrmLogin();
+
+
+            login.Show();
+            this.Close();
+        }
     }
 }

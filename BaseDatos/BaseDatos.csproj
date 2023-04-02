@@ -81,6 +81,7 @@
     <Compile Include="InventarioBD\ConexionInventario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuariosBD\ConexionUsuarios.cs" />
+    <Compile Include="VentasBD\ConexionVentas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

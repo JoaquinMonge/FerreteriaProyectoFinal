@@ -59,5 +59,14 @@ namespace FerreteriaProyectoFinal.Usuario
         {
             txtPwd.Focus();
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            FrmVentanaPrincipal home = new FrmVentanaPrincipal();
+            home.txtUsuario.Text = txtUsuario.Text;
+            
+            home.Show();
+            this.Close();
+        }
     }
 }

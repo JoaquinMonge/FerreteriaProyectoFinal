@@ -19,9 +19,9 @@ namespace Logica.Clientes
         {
             return cn.ConsultaClientes();
         }
-        public bool ActualizarCliente(ClienteModel model)
+        public bool ActualizarCliente(ClienteModel model,string cedula)
         {
-            throw new NotImplementedException();
+            return cn.ActualizarCliente(model, cedula);
         }
 
         public bool BuscarCliente(string nombre)
@@ -31,12 +31,12 @@ namespace Logica.Clientes
 
         public bool CrearCliente(ClienteModel model)
         {
-            throw new NotImplementedException();
+            return cn.CrearCliente(model);
         }
 
-        public bool EliminarCliente(ClienteModel model)
+        public bool EliminarCliente(string cedula)
         {
-            throw new NotImplementedException();
+            return cn.EliminarCliente(cedula);
         }
     }
 }

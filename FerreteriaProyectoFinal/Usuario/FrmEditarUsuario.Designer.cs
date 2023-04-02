@@ -110,6 +110,7 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(175, 82);
             this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(133, 20);
             this.txtUsuario.TabIndex = 11;
             // 

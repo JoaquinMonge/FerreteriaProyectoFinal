@@ -10,9 +10,9 @@ namespace Modelos.Interfaces.Clientes
     public  interface IClientes
     {
         bool CrearCliente(ClienteModel model);
-        bool ActualizarCliente(ClienteModel model);
+        bool ActualizarCliente(ClienteModel model, string cedula);
 
-        bool EliminarCliente(ClienteModel model);
+        bool EliminarCliente(string cedula);
 
         bool BuscarCliente(string nombre);
 

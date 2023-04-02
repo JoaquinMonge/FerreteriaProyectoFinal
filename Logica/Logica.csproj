@@ -46,6 +46,7 @@
     <Compile Include="Inventario\InventarioBs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios\UsuarioBs.cs" />
+    <Compile Include="Ventas\VentasBs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseDatos\BaseDatos.csproj">
