@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace FerreteriaProyectoFinal.Usuario
 {
@@ -33,35 +34,68 @@ namespace FerreteriaProyectoFinal.Usuario
             // Pasar el modelo existente con el ID al método ActualizarUsuario
             UsuarioBs usuarioBs = new UsuarioBs();
 
-            FrmVentanaPrincipal home = new FrmVentanaPrincipal();
-            if (string.IsNullOrEmpty(txtNuevo.Text))
+            string pwd = txtPwd.Text;
+            string hashedPassword = "";
+            //documentacion microsoft SHA256 para encriptar
+            using (SHA256 mySHA256 = SHA256.Create())
             {
-                // Llenar el resto de los campos en el modelo
-                modelo.Usuario = txtUsuario.Text;
-                modelo.Nombre = txtNombreUsu.Text;
-                modelo.Cedula = txtCedula.Text;
-                modelo.Apellido = txtApellido.Text;
-                modelo.Telefono = txtTelefono.Text;
-                modelo.Contrasena = txtPwd.Text;
+                //Obtener la cadena de bytes de la contraseña 
+                byte[] passwordBytes = Encoding.UTF8.GetBytes(pwd);
+
+                // Hashear la contraseña
+                byte[] hashedPasswordBytes = mySHA256.ComputeHash(passwordBytes);
+
+                // Convertir la cadena de bytes hasheada a una cadena de caracteres hexadecimal La cadena resultante de BitConverter.ToString(hashedPasswordBytes) tiene un guion ("-") entre cada par de caracteres hexadecimales, por ejemplo: "4A-69-6D-6D-79-2E-43-61-74-21". Sin embargo, algunos sistemas de almacenamiento de contraseñas pueden no admitir guiones en las contraseñas encriptadas, por lo que se eliminan con el método Replace para generar una cadena de caracteres hexadecimales sin guiones.
+                hashedPassword = BitConverter.ToString(hashedPasswordBytes).Replace("-", "");
+
+
+            }
+
+            if (txtPwd.Text == txtConfirmPwd.Text)
+            {
+                
+
+              
+                    FrmVentanaPrincipal home = new FrmVentanaPrincipal();
+                    if (string.IsNullOrEmpty(txtNuevo.Text))
+                    {
+                        // Llenar el resto de los campos en el modelo
+                        modelo.Usuario = txtUsuario.Text;
+                        modelo.Nombre = txtNombreUsu.Text;
+                        modelo.Cedula = txtCedula.Text;
+                        modelo.Apellido = txtApellido.Text;
+                        modelo.Telefono = txtTelefono.Text;
+                        modelo.Contrasena = hashedPassword;
+                    }
+                    else
+                    {
+                        // Llenar el resto de los campos en el modelo
+                        modelo.Usuario = txtNuevo.Text;
+                        modelo.Nombre = txtNombreUsu.Text;
+                        modelo.Cedula = txtCedula.Text;
+                        modelo.Apellido = txtApellido.Text;
+                        modelo.Telefono = txtTelefono.Text;
+                        modelo.Contrasena = hashedPassword;
+                    }
+
+                int idUsuario = usuarioBs.ObtenerIdUsuario(txtUsuario.Text);
+
+                usuarioBs.ActualizarUsuario(modelo, idUsuario);
+
+
+                MessageBox.Show("Usuario editado con éxito");
+
+
             }
             else
             {
-                // Llenar el resto de los campos en el modelo
-                modelo.Usuario = txtNuevo.Text;
-                modelo.Nombre = txtNombreUsu.Text;
-                modelo.Cedula = txtCedula.Text;
-                modelo.Apellido = txtApellido.Text;
-                modelo.Telefono = txtTelefono.Text;
-                modelo.Contrasena = txtPwd.Text;
+                MessageBox.Show("Las contraseñas no coinciden");
             }
 
-
-            int idUsuario= usuarioBs.ObtenerIdUsuario(txtUsuario.Text);
-
-            usuarioBs.ActualizarUsuario(modelo, idUsuario);
+            
 
 
-            MessageBox.Show("Usuario editado con éxito");
+         
                 
     
 

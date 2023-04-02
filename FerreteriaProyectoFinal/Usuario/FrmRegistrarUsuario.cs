@@ -27,7 +27,7 @@ namespace FerreteriaProyectoFinal.Usuario
             model.Apellido = txtApellido.Text;
             model.Cedula=txtCedula.Text;
             model.Telefono = txtCedula.Text;
-            model.Usuario = txtNombreUsu.Text;
+            model.Usuario = txtUsuario.Text;
             model.Contrasena = txtPwd.Text;
 
             IUsuarios usuario = new UsuarioBs();
@@ -45,7 +45,7 @@ namespace FerreteriaProyectoFinal.Usuario
                 }
                 else
                 {
-                    MessageBox.Show("Error al registrar usuario, intentelo de nuevo");
+                    MessageBox.Show("El usuario ya existe, intentelo de nuevo.");
 
                 }
             }
