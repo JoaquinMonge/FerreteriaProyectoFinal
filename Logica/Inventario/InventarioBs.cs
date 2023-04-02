@@ -17,9 +17,9 @@ namespace Logica.Inventario
         {
             return cn.ConsultaProductos();
         }
-        public bool ActualizarUsuario(InventarioModel model)
+        public bool ActualizarProducto(InventarioModel model,int id)
         {
-            return cn.RegistrarProducto(model);
+            return cn.ActualizarProducto(model,id);
         }
 
         public bool BuscarProducto(string id, string nombre, int precio)
@@ -27,7 +27,7 @@ namespace Logica.Inventario
             throw new NotImplementedException();
         }
 
-        public bool EliminarUsuario(InventarioModel model)
+        public bool EliminarProducto(InventarioModel model)
         {
             throw new NotImplementedException();
         }

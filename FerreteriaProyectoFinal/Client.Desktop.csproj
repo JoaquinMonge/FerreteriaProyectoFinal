@@ -64,6 +64,12 @@
     <Compile Include="FrmVentanaPrincipal.Designer.cs">
       <DependentUpon>FrmVentanaPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventario\FrmEditarInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario\FrmEditarInventario.Designer.cs">
+      <DependentUpon>FrmEditarInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario\FrmInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVentanaPrincipal.resx">
       <DependentUpon>FrmVentanaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario\FrmEditarInventario.resx">
+      <DependentUpon>FrmEditarInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario\FrmInventario.resx">
       <DependentUpon>FrmInventario.cs</DependentUpon>

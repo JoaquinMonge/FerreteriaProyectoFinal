@@ -45,6 +45,8 @@
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.Size = new System.Drawing.Size(719, 348);
             this.dgvInventario.TabIndex = 0;
+            this.dgvInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellContentClick);
+            this.dgvInventario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellDoubleClick);
             // 
             // lblInventario
             // 

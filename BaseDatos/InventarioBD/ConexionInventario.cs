@@ -46,6 +46,23 @@ namespace BaseDatos.InventarioBD
          
         }
 
+        public bool ActualizarProducto(InventarioModel model,int id)
+        {
+            conexion.Open();
+            string query = "UPDATE inventario SET nombre = @nombre, descripcion =@descripcion, precio = @precio, existencias = @existencias"  + " WHERE codigoProducto = " + id;
+            MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
+            cmd.Parameters.AddWithValue("@codigoProducto", model.codigoProducto);
+            cmd.Parameters.AddWithValue("@nombre", model.nombre);
+            cmd.Parameters.AddWithValue("@descripcion", model.descripcion);
+            cmd.Parameters.AddWithValue("@precio", model.precio);
+            cmd.Parameters.AddWithValue("@existencias", model.existencias);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+            return true;
+        }
+
+
+
 
     }
 }

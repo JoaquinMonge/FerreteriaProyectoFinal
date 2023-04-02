@@ -10,9 +10,9 @@ namespace Modelos.Interfaces.Inventario
     public interface IInventario
     {
         bool RegistrarProducto(InventarioModel model);
-        bool ActualizarUsuario(InventarioModel model);
+        bool ActualizarProducto(InventarioModel model,int id);
 
-        bool EliminarUsuario(InventarioModel model);
+        bool EliminarProducto(InventarioModel model);
 
         bool BuscarProducto(string id, string nombre, int precio);
     }
