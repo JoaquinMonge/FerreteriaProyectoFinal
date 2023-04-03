@@ -70,5 +70,12 @@ namespace FerreteriaProyectoFinal
             Properties.Settings.Default.Save();
             Console.WriteLine("Guardando valor: " + mensaje);
         }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            Factura.FrmFacturas facturas = new Factura.FrmFacturas();
+            facturas.Show();
+            this.Close();
+        }
     }
 }

@@ -41,5 +41,10 @@ namespace Logica.Inventario
         {
             return cn.ActualizarStock(codigo, existencias);
         }
+
+        public InventarioModel ObtenerProductoID( int id)
+        {
+            return cn.ObtenerProductoPorId(id);
+        }
     }
 }

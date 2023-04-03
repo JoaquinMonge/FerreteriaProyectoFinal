@@ -89,7 +89,34 @@ namespace BaseDatos.InventarioBD
 
             return true;
         }
+        public InventarioModel ObtenerProductoPorId(int id)
+        {
+            InventarioModel inventario = null;
 
+            string consulta = "SELECT * FROM inventario WHERE codigoProducto = @id";
+            MySqlCommand cmd = new MySqlCommand(consulta, conexion.GetConexion());
+            cmd.Parameters.AddWithValue("@id", id);
+
+            conexion.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                inventario = new InventarioModel()
+                {
+                    codigoProducto = (int)reader["codigoProducto"],
+                    nombre = reader["nombre"].ToString(),
+                    precio = (int)reader["precio"],
+                    existencias = (int)reader["existencias"]
+                };
+            }
+
+            reader.Close();
+
+
+            return inventario;
+
+        }
 
 
 

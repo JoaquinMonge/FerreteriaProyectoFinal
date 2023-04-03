@@ -24,8 +24,9 @@ namespace FerreteriaProyectoFinal.Factura
         public FrmAsignarProd(ClienteModel cliente)
         {
             InitializeComponent();
-
             dgvProductos.DataSource = inv.ConsultaDT();
+
+           
             this.cliente = cliente;
         }
 
@@ -85,8 +86,9 @@ namespace FerreteriaProyectoFinal.Factura
                 {
                     ID = idCliente,
                     IdProducto = producto.codigoProducto,
-                    PrecioTotal = producto.precio,
+                    PrecioUnitario = producto.precio,
                     Cantidad = producto.cantidad,
+                   
                 };
 
                 ventas.RegistrarVenta(ventaModel);

@@ -46,6 +46,7 @@
     <Compile Include="Interfaces\Clientes\IClientes.cs" />
     <Compile Include="Interfaces\Inventario\IInventario.cs" />
     <Compile Include="Interfaces\Usuarios\IUsuarios.cs" />
+    <Compile Include="Ventas\FacturaModel.cs" />
     <Compile Include="Interfaces\Ventas\IVentas.cs" />
     <Compile Include="Inventario\InventarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

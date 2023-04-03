@@ -91,5 +91,34 @@ namespace BaseDatos.ClientesBD
             return true;
         }
 
+        public ClienteModel ObtenerClientePorId(string cedula)
+        {
+            ClienteModel cliente = null;
+
+
+            string Query = "SELECT * FROM clientes WHERE cedula = @cedula";
+            MySqlCommand cmd = new MySqlCommand(Query, conexion.GetConexion());
+            cmd.Parameters.AddWithValue("@cedula", cedula);
+
+            conexion.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.Read())
+            {
+                cliente = new ClienteModel()
+                {
+                    Cedula = reader["cedula"].ToString(),
+                    Nombre = reader["nombre"].ToString(),
+                    Correo = reader["correo"].ToString(),
+                    Telefono = reader["telefono"].ToString()
+                };
+            }
+
+            reader.Close();
+
+
+            return cliente;
+        }
+
     }
 }

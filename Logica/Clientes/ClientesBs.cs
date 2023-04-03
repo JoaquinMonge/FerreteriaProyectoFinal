@@ -38,5 +38,12 @@ namespace Logica.Clientes
         {
             return cn.EliminarCliente(cedula);
         }
+
+        public ClienteModel ObtenerClienteID(string cedula)
+        {
+            return cn.ObtenerClientePorId(cedula);
+        }
+
+
     }
 }

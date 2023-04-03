@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using BaseDatos.VentasBD;
 using Modelos.Ventas;
 using Modelos.Interfaces.Ventas;
+using System.Data;
+using Modelos.Inventario;
 
 namespace Logica.Ventas
 {
@@ -18,6 +20,18 @@ namespace Logica.Ventas
 
             return ventas.RegistrarProducto(model);
         }
+
+        public DataTable ConsultaDT()
+        {
+            return ventas.ConsultaVentas();
+        }
+       public  List<VentasModel> ObtenerFacturas()
+        {
+            return ventas.ObtenerFacturas();    
+        }
+
+
+
 
     }
 }
