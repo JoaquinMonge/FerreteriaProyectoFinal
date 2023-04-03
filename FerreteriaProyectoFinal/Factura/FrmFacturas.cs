@@ -45,8 +45,9 @@ namespace FerreteriaProyectoFinal.Factura
                 {
                     Id = factura.ID,
                     Fecha = DateTime.Now,
-                 Cedula=cliente.Cedula,
+                    Cedula = cliente.Cedula,
                     Cliente = cliente.Nombre,
+                    Codigo = producto.codigoProducto,
                     Producto = producto.nombre,
                     Cantidad = factura.Cantidad,
                     Total = producto.precio,
@@ -61,11 +62,13 @@ namespace FerreteriaProyectoFinal.Factura
             tablaFacturas.Columns.Add("Fecha", typeof(DateTime));
             tablaFacturas.Columns.Add("Cedula", typeof(string));
             tablaFacturas.Columns.Add("Cliente", typeof(string));
+            tablaFacturas.Columns.Add("Codigo", typeof(string));
             tablaFacturas.Columns.Add("Producto", typeof(string));
             tablaFacturas.Columns.Add("Cantidad", typeof(int));
             tablaFacturas.Columns.Add("Total", typeof(decimal));
             tablaFacturas.Columns.Add("Estado", typeof(string));
             tablaFacturas.Columns.Add("Precio Total", typeof(decimal));
+
 
 
             foreach (FacturaModel factura in facturasMostradas)
@@ -76,6 +79,7 @@ namespace FerreteriaProyectoFinal.Factura
                 fila["Cedula"] = factura.Cedula;
                 fila["Cliente"] = factura.Cliente;
                 fila["Producto"] = factura.Producto;
+                fila["Codigo"] = factura.Codigo;
                 fila["Cantidad"] = factura.Cantidad;
                 fila["Total"] = factura.Total;
                 fila["Estado"] = factura.Estado;
@@ -116,6 +120,54 @@ namespace FerreteriaProyectoFinal.Factura
             txtBuscar.Text = "";
 
             dgvFacturas.DataSource = fact;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            
+            FrmVentanaPrincipal home = new FrmVentanaPrincipal();
+            home.Show();
+            this.Close();
+        }
+
+        private void dgvFacturas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void dgvFacturas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvFacturas.Rows.Count)
+            {
+                // Obtener los valores de la fila seleccionada
+                string cedula = dgvFacturas.Rows[e.RowIndex].Cells["Cedula"].Value.ToString();
+                string cliente = dgvFacturas.Rows[e.RowIndex].Cells["Cliente"].Value.ToString();
+                string fecha = dgvFacturas.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
+                string total = dgvFacturas.Rows[e.RowIndex].Cells["Total"].Value.ToString();
+                string precioTotal = dgvFacturas.Rows[e.RowIndex].Cells["Precio Total"].Value.ToString();
+                string producto = dgvFacturas.Rows[e.RowIndex].Cells["Producto"].Value.ToString();
+                string cantidad = dgvFacturas.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString();
+                string IDProd = dgvFacturas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+
+
+
+
+
+
+                FrmEditarFactura editar = new FrmEditarFactura();
+
+                editar.txtNombre.Text = cliente;
+                editar.txtCantidad.Text = cantidad;
+                editar.txtCedula.Text = cedula;
+                editar.txtFecha.Text = fecha;
+                editar.ttxtNombreProd.Text = producto;
+                editar.txtPrecioTot.Text = precioTotal;
+                editar.txtPrecioUnit.Text = total;
+                editar.txtIdProducto.Text = IDProd;
+
+                editar.Show();
+                this.Close();
+            }
         }
     }
 }

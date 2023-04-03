@@ -11,5 +11,6 @@ namespace Modelos.Interfaces.Ventas
     public interface IVentas
     {
         bool RegistrarVenta(VentasModel model);
+        bool ActualizarFactura(VentasModel model,int id);
     }
 }

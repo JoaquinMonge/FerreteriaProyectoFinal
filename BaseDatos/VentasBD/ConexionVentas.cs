@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modelos.Ventas;
+using Modelos.Interfaces.Ventas;
 using System.Data;
 using Modelos.Clientes;
 using Modelos.Inventario;
@@ -86,6 +87,63 @@ namespace BaseDatos.VentasBD
 
             return facturas;
         }
+
+        public bool EliminarFactura(string cedula)
+        {
+            conexion.Open();
+            string query = "DELETE from factura WHERE idCliente=@cedula";
+            MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
+            cmd.Parameters.AddWithValue("@cedula", cedula);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+            return true;
+        }
+
+        public bool ActualizarFactura(FacturaModel model, int id)
+        {
+            conexion.Open();
+            string query = "UPDATE factura SET idCliente = @idCliente, idProducto =@idProducto, precioTotal = @precioTotal, estado = @estado, precioUnitario=@precioUnitario, cantidadProducto=@cantidad WHERE idProducto = @idProducto";
+
+            MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
+            cmd.Parameters.AddWithValue("@idCliente", model.Cedula);
+            cmd.Parameters.AddWithValue("@idProducto", id);
+            cmd.Parameters.AddWithValue("@precioTotal", model.PrecioTotal);
+            cmd.Parameters.AddWithValue("@estado", model.Estado);
+            cmd.Parameters.AddWithValue("@precioUnitario", model.Total);
+            cmd.Parameters.AddWithValue("@cantidad", model.Cantidad);
+
+            // Obtener la cantidad de existencias del producto en la tabla de inventario
+            string queryExistencias = "SELECT existencias FROM inventario WHERE codigoProducto = @codigoProducto";
+            MySqlCommand cmdExistencias = new MySqlCommand(queryExistencias, conexion.GetConexion());
+            cmdExistencias.Parameters.AddWithValue("@codigoProducto", id);
+            int existencias = Convert.ToInt32(cmdExistencias.ExecuteScalar());
+
+            //Restar la cantidad del modelo de factura a las existencias obtenidas en la consulta
+             int cantidadActualizada = existencias - model.Cantidad;
+
+            // Actualizar la cantidad de existencias en la tabla de inventario
+            string queryActualizarExistencias = "UPDATE inventario SET existencias = @existencias WHERE codigoProducto = @codigoProducto";
+            MySqlCommand cmdActualizarExistencias = new MySqlCommand(queryActualizarExistencias, conexion.GetConexion());
+            cmdActualizarExistencias.Parameters.AddWithValue("@existencias", cantidadActualizada);
+            cmdActualizarExistencias.Parameters.AddWithValue("@codigoProducto", id);
+            cmdActualizarExistencias.ExecuteNonQuery();
+
+
+
+
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+            return true;
+
+
+
+
+                
+
+            
+        }
+
+
 
 
 

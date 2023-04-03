@@ -13,7 +13,7 @@ namespace Modelos.Interfaces.Ventas
         public string Cliente { get; set; }
         public string Producto { get; set; }
         public int Cantidad { get; set; }
-
+        public int Codigo { get; set; }
         public int PrecioTotal { get; set; }
         public decimal Total { get; set; }
         public string Cedula { get; set; }
