@@ -13,6 +13,7 @@ namespace Modelos.Inventario
         public string descripcion { get; set; }
         public int precio { get; set; }
         public int existencias { get;set; }
+        public int cantidad { get; set; }
 
     }
 }

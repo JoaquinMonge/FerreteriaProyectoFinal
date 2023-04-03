@@ -38,13 +38,27 @@ namespace FerreteriaProyectoFinal.Factura
 
         private void btnAsignar_Click(object sender, EventArgs e)
         {
-            List<InventarioModel> productosAsignados = new List<InventarioModel>();
+            List<InventarioModel> asignarProductos = new List<InventarioModel>();
 
-            // Recorrer las filas del DataGridView de productos y agregar los productos seleccionados a la lista de productos asignados
+          
+            //Con esto se recorren las filas del DGV para agregar los productos seleccionados a la lista del cliente
             foreach (DataGridViewRow row in dgvProductos.Rows)
             {
                 if (row.Cells["Asignar"].Value != null && (bool)row.Cells["Asignar"].Value == true)
                 {
+                    //Se obtiene la cantidad que digito el vendedor
+                    int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+
+                    //Se obtiene la cantidad de stock del DGV
+                    int stock = Convert.ToInt32(row.Cells["existencias"].Value);
+
+
+                    if (cantidad > stock)
+                    {
+                        MessageBox.Show($"La cantidad ingresada ({row.Cells["cantidad"].Value}) para el producto {row.Cells["nombre"].Value} es mayor a la cantidad en stock  ({row.Cells["existencias"].Value}).");
+                        return;
+                    }
+
                     // Crear un nuevo objeto InventarioModel con los valores de la fila del DataGridView
                     InventarioModel producto = new InventarioModel
                     {
@@ -52,9 +66,11 @@ namespace FerreteriaProyectoFinal.Factura
                         nombre = row.Cells["nombre"].Value.ToString(),
                         precio = Convert.ToInt32(row.Cells["precio"].Value),
                         existencias = Convert.ToInt32(row.Cells["existencias"].Value),
-                        descripcion = row.Cells["descripcion"].Value.ToString()
+                        descripcion = row.Cells["descripcion"].Value.ToString(),
+                        cantidad = cantidad
+
                     };
-                    productosAsignados.Add(producto);
+                    asignarProductos.Add(producto);
                 }
             }
 
@@ -62,29 +78,28 @@ namespace FerreteriaProyectoFinal.Factura
             // Recuperar el cliente seleccionado en el formulario anterior y su respectivo ID
             int idCliente = Convert.ToInt32( cliente.Cedula);
 
-            foreach (InventarioModel producto in productosAsignados)
+            foreach (InventarioModel producto in asignarProductos)
             {
                 // Crear un nuevo objeto VentasModel con los valores del producto asignado y el ID del cliente
-                VentasModel venta = new VentasModel
+                VentasModel ventaModel = new VentasModel
                 {
                     ID = idCliente,
                     IdProducto = producto.codigoProducto,
                     PrecioTotal = producto.precio,
-                    Cantidad = producto.existencias
+                    Cantidad = producto.cantidad,
                 };
 
-                // Insertar la venta en la base de datos
-                bool registroExitoso = ventas.RegistrarVenta(venta);
+                ventas.RegistrarVenta(ventaModel);
 
-                if (registroExitoso)
-                {
-                    MessageBox.Show("Producto asignado correctamente.");
-                }
-                else
-                {
-                    MessageBox.Show("Error al asignar producto.");
-                }
+                int existenciasActualizada = producto.existencias - producto.cantidad;
+                inv.ActualizarStock(producto.codigoProducto, existenciasActualizada);
+
+                
+
             }
+            
+                MessageBox.Show("Producto(s) asignados correctamente");
+            
         }
     }
 }

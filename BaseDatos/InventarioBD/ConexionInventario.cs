@@ -77,6 +77,19 @@ namespace BaseDatos.InventarioBD
             return true;
         }
 
+        public bool ActualizarStock(int codigoProducto, int existencias)
+        {
+            conexion.Open();
+            string Query = "UPDATE inventario SET existencias = @existencias WHERE codigoProducto = @codigoProducto";
+            MySqlCommand cmd = new MySqlCommand(Query, conexion.GetConexion());
+            cmd.Parameters.AddWithValue("@existencias",existencias);
+            cmd.Parameters.AddWithValue("@codigoProducto", codigoProducto);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+
+            return true;
+        }
+
 
 
 

@@ -31,17 +31,20 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnAsignar = new System.Windows.Forms.Button();
             this.Asignar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvProductos
             // 
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Asignar});
-            this.dgvProductos.Location = new System.Drawing.Point(40, 82);
+            this.Asignar,
+            this.Cantidad});
+            this.dgvProductos.Location = new System.Drawing.Point(19, 62);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(555, 150);
+            this.dgvProductos.Size = new System.Drawing.Size(847, 213);
             this.dgvProductos.TabIndex = 0;
             // 
             // btnAsignar
@@ -59,11 +62,16 @@
             this.Asignar.HeaderText = "Asignar";
             this.Asignar.Name = "Asignar";
             // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
             // FrmAsignarProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(878, 450);
             this.Controls.Add(this.btnAsignar);
             this.Controls.Add(this.dgvProductos);
             this.Name = "FrmAsignarProd";
@@ -79,5 +87,6 @@
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnAsignar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Asignar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
     }
 }

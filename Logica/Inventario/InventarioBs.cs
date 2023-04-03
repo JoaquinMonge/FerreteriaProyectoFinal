@@ -36,5 +36,10 @@ namespace Logica.Inventario
         {
             return cn.RegistrarProducto(model);
         }
+
+        public bool ActualizarStock(int codigo, int existencias)
+        {
+            return cn.ActualizarStock(codigo, existencias);
+        }
     }
 }
