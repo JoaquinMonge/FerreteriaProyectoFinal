@@ -8,7 +8,7 @@ namespace Modelos.Ventas
 {
     public class VentasModel
     {
-        public int ID{get; set;}
+        public string ID{get; set;}
         public string IdCliente { get; set; }
 
         public int IdProducto { get; set; }

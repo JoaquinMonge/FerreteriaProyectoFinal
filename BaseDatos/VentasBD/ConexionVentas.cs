@@ -17,12 +17,12 @@ namespace BaseDatos.VentasBD
     {
 
         ConexionBD conexion = new ConexionBD();
-        public bool RegistrarProducto(VentasModel model)
+        public bool RegistrarProducto(VentasModel model,string id)
         {
             conexion.Open();
             int total = model.PrecioUnitario * model.Cantidad;
            
-            string query = "INSERT INTO factura (idCliente, idProducto, precioUnitario, cantidadProducto,estado,precioTotal) VALUES (@idcliente, @idproducto, @precioUnitario, @cantidadproducto,@estado,@precioTotal)";
+            string query = "INSERT INTO factura (idFactura,idCliente, idProducto, precioUnitario, cantidadProducto,estado,precioTotal) VALUES (@idFactura,@idcliente, @idproducto, @precioUnitario, @cantidadproducto,@estado,@precioTotal)";
             MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
             cmd.Parameters.AddWithValue("@idcliente", model.ID);
             cmd.Parameters.AddWithValue("@idproducto", model.IdProducto);
@@ -30,6 +30,8 @@ namespace BaseDatos.VentasBD
             cmd.Parameters.AddWithValue("@cantidadproducto", model.Cantidad);
             cmd.Parameters.AddWithValue("@estado", "pendiente");
             cmd.Parameters.AddWithValue("@precioTotal", total);
+            cmd.Parameters.AddWithValue("@idFactura", id);
+
 
 
             cmd.ExecuteNonQuery();
@@ -71,7 +73,7 @@ namespace BaseDatos.VentasBD
                 {
                 VentasModel factura = new VentasModel()
                 {
-                    ID = (int)reader["idFactura"],
+                    ID = reader["idFactura"].ToString(),
                     IdCliente = reader["idCliente"].ToString(),
                     IdProducto = (int)reader["idProducto"],
                     Cantidad = (int)reader["cantidadProducto"],

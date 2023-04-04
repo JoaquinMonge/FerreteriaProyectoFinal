@@ -15,10 +15,10 @@ namespace Logica.Ventas
     public class VentasBs
     {
         private ConexionVentas ventas = new ConexionVentas();
-        public bool RegistrarVenta(VentasModel model)
+        public bool RegistrarVenta(VentasModel model,string id)
         {
 
-            return ventas.RegistrarProducto(model);
+            return ventas.RegistrarProducto(model,id);
         }
 
         public DataTable ConsultaDT()

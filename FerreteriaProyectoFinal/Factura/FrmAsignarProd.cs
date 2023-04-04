@@ -77,7 +77,7 @@ namespace FerreteriaProyectoFinal.Factura
 
             // Insertar los productos asignados en la base de datos
             // Recuperar el cliente seleccionado en el formulario anterior y su respectivo ID
-            int idCliente = Convert.ToInt32( cliente.Cedula);
+            string idCliente =  cliente.Cedula;
 
             foreach (InventarioModel producto in asignarProductos)
             {
@@ -91,7 +91,16 @@ namespace FerreteriaProyectoFinal.Factura
                    
                 };
 
-                ventas.RegistrarVenta(ventaModel);
+                // Crear un objeto de la clase Random
+                Random rnd = new Random();
+
+                // Generar un número aleatorio de tipo entero
+                int id = rnd.Next(1000, 9999);
+
+                // Convertir el número en una cadena de caracteres con formato "FA-xxxx"
+                string idFactura = "CO-" + id.ToString();
+
+                ventas.RegistrarVenta(ventaModel, idFactura);
 
                 int existenciasActualizada = producto.existencias - producto.cantidad;
                 inv.ActualizarStock(producto.codigoProducto, existenciasActualizada);

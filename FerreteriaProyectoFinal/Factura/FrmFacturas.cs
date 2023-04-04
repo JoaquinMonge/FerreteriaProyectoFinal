@@ -58,7 +58,7 @@ namespace FerreteriaProyectoFinal.Factura
                 facturasMostradas.Add(facturaMostrada);
             }
             DataTable tablaFacturas = new DataTable();
-            tablaFacturas.Columns.Add("Id", typeof(int));
+            tablaFacturas.Columns.Add("Id", typeof(string));
             tablaFacturas.Columns.Add("Fecha", typeof(DateTime));
             tablaFacturas.Columns.Add("Cedula", typeof(string));
             tablaFacturas.Columns.Add("Cliente", typeof(string));
@@ -187,17 +187,19 @@ namespace FerreteriaProyectoFinal.Factura
             FrmConfirmarFactura confirmar = new FrmConfirmarFactura();
 
             confirmar.dgvFacturaCliente.Columns.Add("ID", "ID");
-
+            confirmar.dgvFacturaCliente.Columns.Add("Fecha", "Fecha");
             confirmar.dgvFacturaCliente.Columns.Add("Cedula", "Cedula");
             confirmar.dgvFacturaCliente.Columns.Add("Cliente", "Cliente");
-            confirmar.dgvFacturaCliente.Columns.Add("Fecha", "Fecha");
-            confirmar.dgvFacturaCliente.Columns.Add("Total", "Total");
-            confirmar.dgvFacturaCliente.Columns.Add("Precio Total", "Precio Total");
+            confirmar.dgvFacturaCliente.Columns.Add("Codigo", "Codigo");
             confirmar.dgvFacturaCliente.Columns.Add("Producto", "Producto");
             confirmar.dgvFacturaCliente.Columns.Add("Cantidad", "Cantidad");
+            confirmar.dgvFacturaCliente.Columns.Add("Total", "Total");
             confirmar.dgvFacturaCliente.Columns.Add("Estado", "Estado");
+            confirmar.dgvFacturaCliente.Columns.Add("Precio Total", "Precio Total");
+            
+            
 
-            confirmar.dgvFacturaCliente.Columns.Add("Codigo", "Codigo");
+            
 
             foreach (DataGridViewRow row in dgvFacturas.Rows)
             {
