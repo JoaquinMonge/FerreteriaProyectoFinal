@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica.Ventas;
 using Modelos.Interfaces.Ventas;
-using Modelos.Ventas;
+using Modelos.Factura;
 using Modelos.Clientes;
 using Modelos.Inventario;
 using Logica.Inventario;
@@ -31,28 +31,28 @@ namespace FerreteriaProyectoFinal.Factura
         public void MostrarFacturas()
         {
             // Obtener todas las facturas desde la capa de datos
-            List<VentasModel> facturas = ventas.ObtenerFacturas();
+            List<FacturaModel> facturas = ventas.ObtenerFacturas();
 
             // Crear una lista de facturas con los nombres de cliente y producto
             List<FacturaModel> facturasMostradas = new List<FacturaModel>();
-            foreach (VentasModel factura in facturas)
+            foreach (FacturaModel factura in facturas)
             {
                 ClientesBs clientesBs = new ClientesBs();
                 InventarioBs inventarioBs = new InventarioBs();
-                ClienteModel cliente = clientesBs.ObtenerClienteID(factura.IdCliente);
-                InventarioModel producto = inventarioBs.ObtenerProductoID(factura.IdProducto);
+                ClienteModel cliente = clientesBs.ObtenerClienteID(factura.Cedula);
+                InventarioModel producto = inventarioBs.ObtenerProductoID(factura.Codigo);
                 FacturaModel facturaMostrada = new FacturaModel
                 {
-                    Id = factura.ID,
+                    Id = factura.Id,
                     Fecha = DateTime.Now,
                     Cedula = cliente.Cedula,
                     Cliente = cliente.Nombre,
                     Codigo = producto.codigoProducto,
                     Producto = producto.nombre,
                     Cantidad = factura.Cantidad,
-                    Total = producto.precio,
+                    Precio = producto.precio,
                     Estado= factura.Estado,
-                    PrecioTotal = factura.Cantidad * factura.PrecioUnitario
+                    PrecioTotal = factura.Cantidad * factura.Precio
                 };
                 
                 facturasMostradas.Add(facturaMostrada);
@@ -65,7 +65,7 @@ namespace FerreteriaProyectoFinal.Factura
             tablaFacturas.Columns.Add("Codigo", typeof(string));
             tablaFacturas.Columns.Add("Producto", typeof(string));
             tablaFacturas.Columns.Add("Cantidad", typeof(int));
-            tablaFacturas.Columns.Add("Total", typeof(decimal));
+            tablaFacturas.Columns.Add("Precio", typeof(decimal));
             tablaFacturas.Columns.Add("Estado", typeof(string));
             tablaFacturas.Columns.Add("Precio Total", typeof(decimal));
 
@@ -81,7 +81,7 @@ namespace FerreteriaProyectoFinal.Factura
                 fila["Producto"] = factura.Producto;
                 fila["Codigo"] = factura.Codigo;
                 fila["Cantidad"] = factura.Cantidad;
-                fila["Total"] = factura.Total;
+                fila["Precio"] = factura.Precio;
                 fila["Estado"] = factura.Estado;
                 fila["Precio Total"] = factura.PrecioTotal;
                 tablaFacturas.Rows.Add(fila);
@@ -100,7 +100,7 @@ namespace FerreteriaProyectoFinal.Factura
             foreach (DataGridViewRow row in dgvFacturas.Rows)
             {
                 int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
-                decimal total = Convert.ToDecimal(row.Cells["Total"].Value);
+                decimal total = Convert.ToDecimal(row.Cells["Precio"].Value);
                 decimal cantidadTotal = cantidad * total;
                 row.Cells["Precio Total"].Value = cantidadTotal;
             }
@@ -157,7 +157,7 @@ namespace FerreteriaProyectoFinal.Factura
                 string cedula = dgvFacturas.Rows[e.RowIndex].Cells["Cedula"].Value.ToString();
                 string cliente = dgvFacturas.Rows[e.RowIndex].Cells["Cliente"].Value.ToString();
                 string fecha = dgvFacturas.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
-                string total = dgvFacturas.Rows[e.RowIndex].Cells["Total"].Value.ToString();
+                string total = dgvFacturas.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
                 string precioTotal = dgvFacturas.Rows[e.RowIndex].Cells["Precio Total"].Value.ToString();
                 string producto = dgvFacturas.Rows[e.RowIndex].Cells["Producto"].Value.ToString();
                 string cantidad = dgvFacturas.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString();

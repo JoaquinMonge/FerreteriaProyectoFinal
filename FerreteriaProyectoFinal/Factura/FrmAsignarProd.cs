@@ -11,7 +11,7 @@ using Modelos.Clientes;
 using Logica.Inventario;
 using Modelos.Inventario;
 using Logica.Ventas;
-using Modelos.Ventas;
+using Modelos.Factura;
 
 namespace FerreteriaProyectoFinal.Factura
 {
@@ -82,11 +82,11 @@ namespace FerreteriaProyectoFinal.Factura
             foreach (InventarioModel producto in asignarProductos)
             {
                 // Crear un nuevo objeto VentasModel con los valores del producto asignado y el ID del cliente
-                VentasModel ventaModel = new VentasModel
+                FacturaModel facturaModel = new FacturaModel
                 {
-                    ID = idCliente,
-                    IdProducto = producto.codigoProducto,
-                    PrecioUnitario = producto.precio,
+                    Cedula = idCliente,
+                    Codigo = producto.codigoProducto,
+                    Precio = producto.precio,
                     Cantidad = producto.cantidad,
                    
                 };
@@ -98,9 +98,9 @@ namespace FerreteriaProyectoFinal.Factura
                 int id = rnd.Next(1000, 9999);
 
                 // Convertir el número en una cadena de caracteres con formato "FA-xxxx"
-                string idFactura = "CO-" + id.ToString();
+                string idFactura = "ID-" + id.ToString();
 
-                ventas.RegistrarVenta(ventaModel, idFactura);
+                ventas.RegistrarVenta(facturaModel, idFactura);
 
                 int existenciasActualizada = producto.existencias - producto.cantidad;
                 inv.ActualizarStock(producto.codigoProducto, existenciasActualizada);

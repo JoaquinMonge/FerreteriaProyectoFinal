@@ -43,15 +43,14 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Clientes\ClienteModel.cs" />
+    <Compile Include="Factura\FacturaModel.cs" />
     <Compile Include="Interfaces\Clientes\IClientes.cs" />
     <Compile Include="Interfaces\Inventario\IInventario.cs" />
     <Compile Include="Interfaces\Usuarios\IUsuarios.cs" />
-    <Compile Include="Ventas\FacturaModel.cs" />
     <Compile Include="Interfaces\Ventas\IVentas.cs" />
     <Compile Include="Inventario\InventarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios\UsuarioModel.cs" />
-    <Compile Include="Ventas\VentasModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

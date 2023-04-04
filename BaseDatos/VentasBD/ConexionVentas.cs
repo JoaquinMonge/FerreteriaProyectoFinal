@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Modelos.Ventas;
+using Modelos.Factura;
 using Modelos.Interfaces.Ventas;
 using System.Data;
 using Modelos.Clientes;
@@ -17,16 +17,16 @@ namespace BaseDatos.VentasBD
     {
 
         ConexionBD conexion = new ConexionBD();
-        public bool RegistrarProducto(VentasModel model,string id)
+        public bool RegistrarProducto(FacturaModel model,string id)
         {
             conexion.Open();
-            int total = model.PrecioUnitario * model.Cantidad;
+            int total = model.Precio * model.Cantidad;
            
             string query = "INSERT INTO factura (idFactura,idCliente, idProducto, precioUnitario, cantidadProducto,estado,precioTotal) VALUES (@idFactura,@idcliente, @idproducto, @precioUnitario, @cantidadproducto,@estado,@precioTotal)";
             MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
-            cmd.Parameters.AddWithValue("@idcliente", model.ID);
-            cmd.Parameters.AddWithValue("@idproducto", model.IdProducto);
-            cmd.Parameters.AddWithValue("@precioUnitario", model.PrecioUnitario);
+            cmd.Parameters.AddWithValue("@idcliente", model.Cedula);
+            cmd.Parameters.AddWithValue("@idproducto", model.Codigo);
+            cmd.Parameters.AddWithValue("@precioUnitario", model.Precio);
             cmd.Parameters.AddWithValue("@cantidadproducto", model.Cantidad);
             cmd.Parameters.AddWithValue("@estado", "pendiente");
             cmd.Parameters.AddWithValue("@precioTotal", total);
@@ -57,9 +57,9 @@ namespace BaseDatos.VentasBD
 
         }
 
-        public List<VentasModel> ObtenerFacturas()
+        public List<FacturaModel> ObtenerFacturas()
         {
-            List<VentasModel> facturas = new List<VentasModel>();
+            List<FacturaModel> facturas = new List<FacturaModel>();
 
 
            
@@ -71,13 +71,13 @@ namespace BaseDatos.VentasBD
 
                 while (reader.Read())
                 {
-                VentasModel factura = new VentasModel()
+                FacturaModel factura = new FacturaModel()
                 {
-                    ID = reader["idFactura"].ToString(),
-                    IdCliente = reader["idCliente"].ToString(),
-                    IdProducto = (int)reader["idProducto"],
+                    Id = reader["idFactura"].ToString(),
+                    Cedula = reader["idCliente"].ToString(),
+                    Codigo = (int)reader["idProducto"],
                     Cantidad = (int)reader["cantidadProducto"],
-                    PrecioUnitario = (int)reader["precioUnitario"],
+                    Precio = (int)reader["precioUnitario"],
                     PrecioTotal = (int)reader["cantidadProducto"] * (int)reader["precioUnitario"],
                     Estado = reader["estado"].ToString(),
                     };
@@ -111,7 +111,7 @@ namespace BaseDatos.VentasBD
             cmd.Parameters.AddWithValue("@idProducto", id);
             cmd.Parameters.AddWithValue("@precioTotal", model.PrecioTotal);
             cmd.Parameters.AddWithValue("@estado", model.Estado);
-            cmd.Parameters.AddWithValue("@precioUnitario", model.Total);
+            cmd.Parameters.AddWithValue("@precioUnitario", model.Precio);
             cmd.Parameters.AddWithValue("@cantidad", model.Cantidad);
 
             // Obtener la cantidad de existencias del producto en la tabla de inventario

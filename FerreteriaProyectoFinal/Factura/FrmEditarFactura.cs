@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica.Ventas;
 using Modelos.Interfaces.Ventas;
+using Modelos.Factura;
 
 namespace FerreteriaProyectoFinal.Factura
 {
@@ -49,7 +50,7 @@ namespace FerreteriaProyectoFinal.Factura
         {
 
             FacturaModel modelo = new FacturaModel();
-            modelo.Total = Convert.ToInt32( txtPrecioUnit.Text);
+            modelo.Precio = Convert.ToInt32( txtPrecioUnit.Text);
             modelo.Cedula = txtCedula.Text;
             modelo.Codigo = Convert.ToInt32(txtIdProducto.Text);
             modelo.PrecioTotal = Convert.ToInt32(txtPrecioTot.Text)* Convert.ToInt32(txtCantidad.Text) ;

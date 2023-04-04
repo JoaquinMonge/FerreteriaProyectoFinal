@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelos.Interfaces.Ventas
+namespace Modelos.Factura
 {
     public class FacturaModel
     {
@@ -15,12 +15,9 @@ namespace Modelos.Interfaces.Ventas
         public int Cantidad { get; set; }
         public int Codigo { get; set; }
         public int PrecioTotal { get; set; }
-        public decimal Total { get; set; }
+        public int Precio { get; set; }
         public string Cedula { get; set; }
 
         public string Estado { get; set; }
-
-
-
     }
 }

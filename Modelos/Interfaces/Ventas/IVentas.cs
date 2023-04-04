@@ -1,4 +1,4 @@
-﻿using Modelos.Ventas;
+﻿using Modelos.Factura;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace Modelos.Interfaces.Ventas
 {
     public interface IVentas
     {
-        bool RegistrarVenta(VentasModel model);
-        bool ActualizarFactura(VentasModel model,int id);
+        bool RegistrarVenta(FacturaModel model);
+        bool ActualizarFactura(FacturaModel model,int id);
     }
 }

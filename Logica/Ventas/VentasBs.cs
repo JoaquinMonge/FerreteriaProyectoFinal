@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BaseDatos.VentasBD;
-using Modelos.Ventas;
+using Modelos.Factura;
 using Modelos.Interfaces.Ventas;
 using System.Data;
 using Modelos.Inventario;
@@ -15,7 +15,7 @@ namespace Logica.Ventas
     public class VentasBs
     {
         private ConexionVentas ventas = new ConexionVentas();
-        public bool RegistrarVenta(VentasModel model,string id)
+        public bool RegistrarVenta(FacturaModel model,string id)
         {
 
             return ventas.RegistrarProducto(model,id);
@@ -25,7 +25,7 @@ namespace Logica.Ventas
         {
             return ventas.ConsultaVentas();
         }
-       public  List<VentasModel> ObtenerFacturas()
+       public  List<FacturaModel> ObtenerFacturas()
         {
             return ventas.ObtenerFacturas();    
         }
