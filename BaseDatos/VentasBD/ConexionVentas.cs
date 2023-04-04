@@ -118,8 +118,15 @@ namespace BaseDatos.VentasBD
             cmdExistencias.Parameters.AddWithValue("@codigoProducto", id);
             int existencias = Convert.ToInt32(cmdExistencias.ExecuteScalar());
 
+            // Validar que hay suficientes existencias en inventario para realizar la actualización de la factura
+            if (model.Cantidad > existencias)
+            {
+                conexion.Close();
+                return false;
+            }
+
             //Restar la cantidad del modelo de factura a las existencias obtenidas en la consulta
-             int cantidadActualizada = existencias - model.Cantidad;
+            int cantidadActualizada = existencias - model.Cantidad;
 
             // Actualizar la cantidad de existencias en la tabla de inventario
             string queryActualizarExistencias = "UPDATE inventario SET existencias = @existencias WHERE codigoProducto = @codigoProducto";

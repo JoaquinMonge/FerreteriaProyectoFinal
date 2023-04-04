@@ -113,10 +113,24 @@ namespace FerreteriaProyectoFinal.Factura
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+
             //con esto se obtiene el datble asociado al dgv
             DataTable fact = (DataTable)dgvFacturas.DataSource;
 
             fact.DefaultView.RowFilter = String.Format("cedula LIKE '%{0}%'", txtBuscar.Text);
+            decimal sumatoriaPrecioTotal = 0;
+            foreach (DataGridViewRow row in dgvFacturas.Rows)
+            {
+                decimal precioTotal = Convert.ToDecimal(row.Cells["Precio Total"].Value);
+                sumatoriaPrecioTotal += precioTotal;
+            }
+
+            // Mostrar la sumatoria en un TextBox
+            txtToalPagar.Text = sumatoriaPrecioTotal.ToString();
+            if (txtBuscar.Text.Length == 0)
+            {
+                txtToalPagar.Text = " ";
+            }
             txtBuscar.Text = "";
 
             dgvFacturas.DataSource = fact;
@@ -150,11 +164,8 @@ namespace FerreteriaProyectoFinal.Factura
                 string IDProd = dgvFacturas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
 
 
-
-
-
-
                 FrmEditarFactura editar = new FrmEditarFactura();
+
 
                 editar.txtNombre.Text = cliente;
                 editar.txtCantidad.Text = cantidad;
@@ -165,9 +176,46 @@ namespace FerreteriaProyectoFinal.Factura
                 editar.txtPrecioUnit.Text = total;
                 editar.txtIdProducto.Text = IDProd;
 
+
                 editar.Show();
                 this.Close();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmConfirmarFactura confirmar = new FrmConfirmarFactura();
+
+            confirmar.dgvFacturaCliente.Columns.Add("ID", "ID");
+
+            confirmar.dgvFacturaCliente.Columns.Add("Cedula", "Cedula");
+            confirmar.dgvFacturaCliente.Columns.Add("Cliente", "Cliente");
+            confirmar.dgvFacturaCliente.Columns.Add("Fecha", "Fecha");
+            confirmar.dgvFacturaCliente.Columns.Add("Total", "Total");
+            confirmar.dgvFacturaCliente.Columns.Add("Precio Total", "Precio Total");
+            confirmar.dgvFacturaCliente.Columns.Add("Producto", "Producto");
+            confirmar.dgvFacturaCliente.Columns.Add("Cantidad", "Cantidad");
+            confirmar.dgvFacturaCliente.Columns.Add("Estado", "Estado");
+
+            confirmar.dgvFacturaCliente.Columns.Add("Codigo", "Codigo");
+
+            foreach (DataGridViewRow row in dgvFacturas.Rows)
+            {
+                // Crear una nueva fila en el segundo DataGridView
+                DataGridViewRow nuevaFila = (DataGridViewRow)row.Clone();
+
+                // Agregar las celdas de la fila original a la nueva fila
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    nuevaFila.Cells[i].Value = row.Cells[i].Value;
+                }
+
+                // Agregar la nueva fila al segundo DataGridView
+                confirmar.dgvFacturaCliente.Rows.Add(nuevaFila);
+            }
+            confirmar.Show();
+            this.Close();
+
         }
     }
 }

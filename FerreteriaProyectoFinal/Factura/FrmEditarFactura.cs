@@ -56,13 +56,22 @@ namespace FerreteriaProyectoFinal.Factura
             modelo.Estado = "pendiente";
             modelo.Cantidad = Convert.ToInt32(txtCantidad.Text);
 
-            ventas.ActualizarFactura(modelo,Convert.ToInt32(txtIdProducto.Text));
+            bool actualizar=ventas.ActualizarFactura(modelo,Convert.ToInt32(txtIdProducto.Text));
 
-            MessageBox.Show("Editado con exito");
+            if (actualizar)
+            {
+                MessageBox.Show("Editado con exito");
 
-            FrmFacturas fact =new FrmFacturas();
-            fact.Show();
-            this.Close();
+                FrmFacturas fact = new FrmFacturas();
+                fact.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No hay suficiente stock");
+            }
+
+           
         }
     }
 }
