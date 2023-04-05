@@ -10,6 +10,7 @@ using System.Data;
 using Modelos.Clientes;
 using Modelos.Inventario;
 
+
 namespace BaseDatos.VentasBD
 {
 
@@ -62,9 +63,12 @@ namespace BaseDatos.VentasBD
             List<FacturaModel> facturas = new List<FacturaModel>();
 
 
-           
-                string consulta = "SELECT * FROM factura";
-                MySqlCommand comando = new MySqlCommand(consulta, conexion.GetConexion());
+
+
+
+            string consulta = "SELECT factura.*, inventario.nombre, clientes.nombre AS nombreCliente FROM factura JOIN inventario ON factura.idProducto = inventario.codigoProducto JOIN clientes ON factura.idCliente = clientes.cedula";
+
+            MySqlCommand comando = new MySqlCommand(consulta, conexion.GetConexion());
 
                 conexion.Open();
                 MySqlDataReader reader = comando.ExecuteReader();
@@ -75,7 +79,9 @@ namespace BaseDatos.VentasBD
                 {
                     Id = reader["idFactura"].ToString(),
                     Cedula = reader["idCliente"].ToString(),
-                    Codigo = (int)reader["idProducto"],
+                    Cliente = reader["nombreCliente"].ToString(),
+                Codigo = (int)reader["idProducto"],
+                    Producto = reader["nombre"].ToString(),
                     Cantidad = (int)reader["cantidadProducto"],
                     Precio = (int)reader["precioUnitario"],
                     PrecioTotal = (int)reader["cantidadProducto"] * (int)reader["precioUnitario"],

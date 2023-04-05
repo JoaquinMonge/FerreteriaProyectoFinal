@@ -184,6 +184,7 @@ namespace FerreteriaProyectoFinal.Factura
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             FrmConfirmarFactura confirmar = new FrmConfirmarFactura();
 
             confirmar.dgvFacturaCliente.Columns.Add("ID", "ID");
@@ -198,7 +199,8 @@ namespace FerreteriaProyectoFinal.Factura
             confirmar.dgvFacturaCliente.Columns.Add("Precio Total", "Precio Total");
             
             
-
+            //id,cedula,nombre cliente fecha
+            //dgv=producto, cantidad
             
 
             foreach (DataGridViewRow row in dgvFacturas.Rows)

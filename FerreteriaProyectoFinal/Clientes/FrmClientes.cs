@@ -15,6 +15,7 @@ namespace FerreteriaProyectoFinal.Clientes
 {
     public partial class FrmClientes : Form
     {
+        
         ClientesBs clientes = new ClientesBs();
         public FrmClientes()
         {
@@ -38,6 +39,7 @@ namespace FerreteriaProyectoFinal.Clientes
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+           
             //con esto se obtiene el datble asociado al dgv
             DataTable inv = (DataTable)dgvClientes.DataSource;
 
@@ -49,8 +51,15 @@ namespace FerreteriaProyectoFinal.Clientes
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+
+            
+            
+
             if (e.RowIndex >= 0 && e.RowIndex < dgvClientes.Rows.Count)
             {
+               
+                  
                 // Obtener los valores de la fila seleccionada
                 string cedula = dgvClientes.Rows[e.RowIndex].Cells["cedula"].Value.ToString();
 
@@ -59,6 +68,7 @@ namespace FerreteriaProyectoFinal.Clientes
                 string telefono = dgvClientes.Rows[e.RowIndex].Cells["telefono"].Value.ToString();
                 string correo = dgvClientes.Rows[e.RowIndex].Cells["correo"].Value.ToString();
 
+               
 
 
                 FrmEditarCliente editar = new FrmEditarCliente();
@@ -102,6 +112,10 @@ namespace FerreteriaProyectoFinal.Clientes
             // Abrir el formulario de asignar productos y pasar el cliente seleccionado
             FrmAsignarProd asignarProductosForm = new FrmAsignarProd(cliente);
             asignarProductosForm.Show();
+
+            asignarProductosForm.txtCedula.Text = rowCliente["cedula"].ToString();
+
+
 
         }
     }

@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.btnAsignar = new System.Windows.Forms.Button();
             this.Asignar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAsignar = new System.Windows.Forms.Button();
+            this.btnConfirmarCompra = new System.Windows.Forms.Button();
+            this.lblCedula = new System.Windows.Forms.Label();
+            this.txtCedula = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,16 +50,6 @@
             this.dgvProductos.Size = new System.Drawing.Size(847, 213);
             this.dgvProductos.TabIndex = 0;
             // 
-            // btnAsignar
-            // 
-            this.btnAsignar.Location = new System.Drawing.Point(516, 329);
-            this.btnAsignar.Name = "btnAsignar";
-            this.btnAsignar.Size = new System.Drawing.Size(86, 28);
-            this.btnAsignar.TabIndex = 1;
-            this.btnAsignar.Text = "Asignar";
-            this.btnAsignar.UseVisualStyleBackColor = true;
-            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
-            // 
             // Asignar
             // 
             this.Asignar.HeaderText = "Asignar";
@@ -67,11 +60,50 @@
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
             // 
+            // btnAsignar
+            // 
+            this.btnAsignar.Location = new System.Drawing.Point(516, 329);
+            this.btnAsignar.Name = "btnAsignar";
+            this.btnAsignar.Size = new System.Drawing.Size(86, 28);
+            this.btnAsignar.TabIndex = 1;
+            this.btnAsignar.Text = "Asignar";
+            this.btnAsignar.UseVisualStyleBackColor = true;
+            this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
+            // 
+            // btnConfirmarCompra
+            // 
+            this.btnConfirmarCompra.Location = new System.Drawing.Point(251, 329);
+            this.btnConfirmarCompra.Name = "btnConfirmarCompra";
+            this.btnConfirmarCompra.Size = new System.Drawing.Size(86, 28);
+            this.btnConfirmarCompra.TabIndex = 2;
+            this.btnConfirmarCompra.Text = "Facturar";
+            this.btnConfirmarCompra.UseVisualStyleBackColor = true;
+            this.btnConfirmarCompra.Click += new System.EventHandler(this.btnConfirmarCompra_Click);
+            // 
+            // lblCedula
+            // 
+            this.lblCedula.AutoSize = true;
+            this.lblCedula.Location = new System.Drawing.Point(184, 33);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(43, 13);
+            this.lblCedula.TabIndex = 74;
+            this.lblCedula.Text = "Cedula:";
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.Location = new System.Drawing.Point(320, 26);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(133, 20);
+            this.txtCedula.TabIndex = 73;
+            // 
             // FrmAsignarProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 450);
+            this.Controls.Add(this.lblCedula);
+            this.Controls.Add(this.txtCedula);
+            this.Controls.Add(this.btnConfirmarCompra);
             this.Controls.Add(this.btnAsignar);
             this.Controls.Add(this.dgvProductos);
             this.Name = "FrmAsignarProd";
@@ -79,6 +111,7 @@
             this.Load += new System.EventHandler(this.FrmAsignarProd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -88,5 +121,8 @@
         private System.Windows.Forms.Button btnAsignar;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Asignar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.Button btnConfirmarCompra;
+        private System.Windows.Forms.Label lblCedula;
+        public System.Windows.Forms.TextBox txtCedula;
     }
 }

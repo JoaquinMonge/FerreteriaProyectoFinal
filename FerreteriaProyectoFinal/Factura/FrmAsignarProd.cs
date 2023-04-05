@@ -13,6 +13,8 @@ using Modelos.Inventario;
 using Logica.Ventas;
 using Modelos.Factura;
 
+using Logica.Clientes;
+
 namespace FerreteriaProyectoFinal.Factura
 {
     public partial class FrmAsignarProd : Form
@@ -111,6 +113,12 @@ namespace FerreteriaProyectoFinal.Factura
             
                 MessageBox.Show("Producto(s) asignados correctamente");
             
+        }
+
+        private void btnConfirmarCompra_Click(object sender, EventArgs e)
+        {
+            FrmGenerarFactura frm = new FrmGenerarFactura();
+            frm.Show();
         }
     }
 }

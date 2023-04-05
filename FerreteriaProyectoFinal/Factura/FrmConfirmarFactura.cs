@@ -15,6 +15,7 @@ namespace FerreteriaProyectoFinal.Factura
         public FrmConfirmarFactura()
         {
             InitializeComponent();
+            
         }
     }
 }
