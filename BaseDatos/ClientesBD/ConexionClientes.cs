@@ -109,12 +109,15 @@ namespace BaseDatos.ClientesBD
                 {
                     Cedula = reader["cedula"].ToString(),
                     Nombre = reader["nombre"].ToString(),
+                    Apellidos = reader["apellidos"].ToString(),
                     Correo = reader["correo"].ToString(),
                     Telefono = reader["telefono"].ToString()
                 };
             }
 
             reader.Close();
+
+            conexion.Close();
 
 
             return cliente;

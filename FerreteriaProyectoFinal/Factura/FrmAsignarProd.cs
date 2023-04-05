@@ -118,7 +118,60 @@ namespace FerreteriaProyectoFinal.Factura
         private void btnConfirmarCompra_Click(object sender, EventArgs e)
         {
             FrmGenerarFactura frm = new FrmGenerarFactura();
+            ClientesBs clientes = new ClientesBs();
+            ClienteModel cliente = clientes.ObtenerClienteID(txtCedula.Text);
+
+            frm.txtNombre.Text = cliente.Nombre;
+            frm.txtApellido.Text = cliente.Apellidos;
+            frm.txtTelefono.Text = cliente.Telefono;
+            frm.txtCorreo.Text = cliente.Correo;
+            frm.txtCedula.Text = cliente.Cedula;
+            frm.txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+
             frm.Show();
+            frm.dgvGenerarFactura.DataSource = ventas.ConsultaDT(Convert.ToInt32(txtCedula.Text));
+
+            frm.dgvGenerarFactura.Columns["idProducto"].HeaderText = "ID Producto";
+            frm.dgvGenerarFactura.Columns["precioTotal"].HeaderText = "Precio Total";
+            frm.dgvGenerarFactura.Columns["cantidadProducto"].HeaderText = "Cantidad";
+            frm.dgvGenerarFactura.Columns["precioUnitario"].HeaderText = "Precio";
+
+
+            frm.dgvGenerarFactura.Columns["id"].Visible = false;
+            frm.dgvGenerarFactura.Columns["idFactura"].Visible = false;
+            frm.dgvGenerarFactura.Columns["idCliente"].Visible = false;
+            frm.dgvGenerarFactura.Columns["estado"].Visible = false;
+
+            frm.dgvGenerarFactura.Columns["idProducto"].DisplayIndex = 0;
+
+
+
+
+            ;
+
+                
+            
+          
+
+
+
+
+
+
+            DataGridViewRow idFact = frm.dgvGenerarFactura.Rows[0];
+            string idFactura = idFact.Cells["idFactura"].Value.ToString();
+            frm.txtIdFactura.Text = idFactura.ToString();
+            foreach (DataGridViewRow row in frm.dgvGenerarFactura.Rows)
+            {
+                int idProducto = Convert.ToInt32(row.Cells["idProducto"].Value);
+                InventarioModel producto = inv.ObtenerProductoID(idProducto);
+
+                if (producto != null)
+                {
+                    row.Cells["Producto"].Value = producto.nombre;
+                }
+
+            }
         }
     }
 }

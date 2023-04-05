@@ -42,17 +42,16 @@ namespace BaseDatos.VentasBD
         }
 
 
-        public DataTable ConsultaVentas()
+        public DataTable ConsultaVentas(int cedula)
         {
-            conexion.Open();
-            string Query = "SELECT * FROM factura";
+             string Query = "SELECT * FROM factura WHERE idCliente = @idCliente";
             MySqlCommand cmd = new MySqlCommand(Query, conexion.GetConexion());
+            cmd.Parameters.AddWithValue("@idCliente", cedula);
             DataTable tabla = new DataTable();
             MySqlDataAdapter data = new MySqlDataAdapter(cmd);
             data.Fill(tabla);
             conexion.Close();
             return tabla;
-
 
 
 

@@ -113,6 +113,8 @@ namespace BaseDatos.InventarioBD
 
             reader.Close();
 
+            conexion.Close();
+
 
             return inventario;
 

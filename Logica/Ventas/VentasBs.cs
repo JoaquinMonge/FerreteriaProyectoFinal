@@ -21,9 +21,9 @@ namespace Logica.Ventas
             return ventas.RegistrarProducto(model,id);
         }
 
-        public DataTable ConsultaDT()
+        public DataTable ConsultaDT(int cedula)
         {
-            return ventas.ConsultaVentas();
+            return ventas.ConsultaVentas(cedula);
         }
        public  List<FacturaModel> ObtenerFacturas()
         {
