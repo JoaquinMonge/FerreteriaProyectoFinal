@@ -35,9 +35,9 @@ namespace Logica.Ventas
             return ventas.EliminarFactura(cedula);
         }
 
-        public bool ActualizarFactura(FacturaModel model,int id)
+        public bool ActualizarFactura(FacturaModel model,int id,int ctd)
         {
-            return ventas.ActualizarFactura(model,id);
+            return ventas.ActualizarFactura(model,id,ctd);
         }
 
 

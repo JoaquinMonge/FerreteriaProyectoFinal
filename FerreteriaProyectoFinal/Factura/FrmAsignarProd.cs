@@ -12,7 +12,6 @@ using Logica.Inventario;
 using Modelos.Inventario;
 using Logica.Ventas;
 using Modelos.Factura;
-
 using Logica.Clientes;
 
 namespace FerreteriaProyectoFinal.Factura
@@ -22,6 +21,7 @@ namespace FerreteriaProyectoFinal.Factura
        
         InventarioBs inv = new InventarioBs();
        VentasBs ventas = new VentasBs();    
+        
         private ClienteModel cliente;
         public FrmAsignarProd(ClienteModel cliente)
         {
@@ -121,57 +121,79 @@ namespace FerreteriaProyectoFinal.Factura
             ClientesBs clientes = new ClientesBs();
             ClienteModel cliente = clientes.ObtenerClienteID(txtCedula.Text);
 
-            frm.txtNombre.Text = cliente.Nombre;
-            frm.txtApellido.Text = cliente.Apellidos;
-            frm.txtTelefono.Text = cliente.Telefono;
-            frm.txtCorreo.Text = cliente.Correo;
-            frm.txtCedula.Text = cliente.Cedula;
-            frm.txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-
-            frm.Show();
-            frm.dgvGenerarFactura.DataSource = ventas.ConsultaDT(Convert.ToInt32(txtCedula.Text));
-
-            frm.dgvGenerarFactura.Columns["idProducto"].HeaderText = "ID Producto";
-            frm.dgvGenerarFactura.Columns["precioTotal"].HeaderText = "Precio Total";
-            frm.dgvGenerarFactura.Columns["cantidadProducto"].HeaderText = "Cantidad";
-            frm.dgvGenerarFactura.Columns["precioUnitario"].HeaderText = "Precio";
-
-
-            frm.dgvGenerarFactura.Columns["id"].Visible = false;
-            frm.dgvGenerarFactura.Columns["idFactura"].Visible = false;
-            frm.dgvGenerarFactura.Columns["idCliente"].Visible = false;
-            frm.dgvGenerarFactura.Columns["estado"].Visible = false;
-
-            frm.dgvGenerarFactura.Columns["idProducto"].DisplayIndex = 0;
-
-
-
-
-            ;
-
-                
             
-          
 
 
 
 
+            //validar que tenga articulos
 
+            DataTable facturas;
 
-            DataGridViewRow idFact = frm.dgvGenerarFactura.Rows[0];
-            string idFactura = idFact.Cells["idFactura"].Value.ToString();
-            frm.txtIdFactura.Text = idFactura.ToString();
-            foreach (DataGridViewRow row in frm.dgvGenerarFactura.Rows)
+            facturas = ventas.ConsultaDT(Convert.ToInt32( txtCedula.Text));
+
+            if(facturas.Rows.Count> 0)
             {
-                int idProducto = Convert.ToInt32(row.Cells["idProducto"].Value);
-                InventarioModel producto = inv.ObtenerProductoID(idProducto);
+                frm.txtNombre.Text = cliente.Nombre;
+                frm.txtApellido.Text = cliente.Apellidos;
+                frm.txtTelefono.Text = cliente.Telefono;
+                frm.txtCorreo.Text = cliente.Correo;
+                frm.txtCedula.Text = cliente.Cedula;
+                frm.txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
-                if (producto != null)
+                frm.Show();
+                frm.dgvGenerarFactura.DataSource = ventas.ConsultaDT(Convert.ToInt32(txtCedula.Text));
+
+                frm.dgvGenerarFactura.Columns["idProducto"].HeaderText = "ID Producto";
+                frm.dgvGenerarFactura.Columns["precioTotal"].HeaderText = "Precio Total";
+                frm.dgvGenerarFactura.Columns["cantidadProducto"].HeaderText = "Cantidad";
+                frm.dgvGenerarFactura.Columns["precioUnitario"].HeaderText = "Precio";
+
+
+                frm.dgvGenerarFactura.Columns["id"].Visible = false;
+                frm.dgvGenerarFactura.Columns["idFactura"].Visible = false;
+                frm.dgvGenerarFactura.Columns["idCliente"].Visible = false;
+                frm.dgvGenerarFactura.Columns["estado"].Visible = false;
+
+                frm.dgvGenerarFactura.Columns["idProducto"].DisplayIndex = 0;
+
+                decimal sumatoriaPrecioTotal = 0;
+                foreach (DataGridViewRow row in frm.dgvGenerarFactura.Rows)
                 {
-                    row.Cells["Producto"].Value = producto.nombre;
+                    decimal precioTotal = Convert.ToDecimal(row.Cells["precioTotal"].Value);
+                    sumatoriaPrecioTotal += precioTotal;
                 }
 
+                // Mostrar la sumatoria en un TextBox
+                frm.txtTotal.Text = "₡" + sumatoriaPrecioTotal.ToString();
+
+                DataGridViewRow idFact = frm.dgvGenerarFactura.Rows[0];
+                string idFactura = idFact.Cells["idFactura"].Value.ToString();
+                frm.txtIdFactura.Text = idFactura.ToString();
+                foreach (DataGridViewRow row in frm.dgvGenerarFactura.Rows)
+                {
+                    int idProducto = Convert.ToInt32(row.Cells["idProducto"].Value);
+                    InventarioModel producto = inv.ObtenerProductoID(idProducto);
+
+                    if (producto != null)
+                    {
+                        row.Cells["Producto"].Value = producto.nombre;
+                    }
+
+                }
             }
+            else
+            {
+                MessageBox.Show("El cliente no tiene productos asignados. No se pudo generar la factura.");
+            }
+
+
+
+
+
+
+
+           
         }
     }
 }

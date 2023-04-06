@@ -28,42 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.txtCantidadNueva = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
             this.txtPrecioUnit = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtIdProd = new System.Windows.Forms.TextBox();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPrecioTot = new System.Windows.Forms.TextBox();
             this.lblProd = new System.Windows.Forms.Label();
-            this.ttxtNombreProd = new System.Windows.Forms.TextBox();
+            this.txtEstao = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdProducto = new System.Windows.Forms.TextBox();
+            this.txtCantActual = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtCantidad
+            // txtCantidadNueva
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(227, 168);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(133, 20);
-            this.txtCantidad.TabIndex = 85;
+            this.txtCantidadNueva.Location = new System.Drawing.Point(227, 194);
+            this.txtCantidadNueva.Name = "txtCantidadNueva";
+            this.txtCantidadNueva.Size = new System.Drawing.Size(133, 20);
+            this.txtCantidadNueva.TabIndex = 85;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(91, 171);
+            this.label3.Location = new System.Drawing.Point(91, 197);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 84;
-            this.label3.Text = "Cantidad:";
+            this.label3.Text = "Nueva Cantidad:";
             // 
             // lblTotal
             // 
@@ -107,13 +109,13 @@
             this.txtFecha.Size = new System.Drawing.Size(133, 20);
             this.txtFecha.TabIndex = 79;
             // 
-            // txtNombre
+            // txtIdProd
             // 
-            this.txtNombre.Location = new System.Drawing.Point(227, 127);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(133, 20);
-            this.txtNombre.TabIndex = 78;
+            this.txtIdProd.Location = new System.Drawing.Point(227, 127);
+            this.txtIdProd.Name = "txtIdProd";
+            this.txtIdProd.ReadOnly = true;
+            this.txtIdProd.Size = new System.Drawing.Size(133, 20);
+            this.txtIdProd.TabIndex = 78;
             // 
             // lblFecha
             // 
@@ -124,14 +126,14 @@
             this.lblFecha.TabIndex = 77;
             this.lblFecha.Text = "Fecha:";
             // 
-            // lblNombre
+            // lblID
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(91, 127);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(82, 13);
-            this.lblNombre.TabIndex = 76;
-            this.lblNombre.Text = "Nombre Cliente:";
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(91, 127);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(57, 13);
+            this.lblID.TabIndex = 76;
+            this.lblID.Text = "ID Factura";
             // 
             // btnVolver
             // 
@@ -175,17 +177,17 @@
             this.lblProd.AutoSize = true;
             this.lblProd.Location = new System.Drawing.Point(91, 275);
             this.lblProd.Name = "lblProd";
-            this.lblProd.Size = new System.Drawing.Size(53, 13);
+            this.lblProd.Size = new System.Drawing.Size(43, 13);
             this.lblProd.TabIndex = 91;
-            this.lblProd.Text = "Producto:";
+            this.lblProd.Text = "Estado:";
             // 
-            // ttxtNombreProd
+            // txtEstao
             // 
-            this.ttxtNombreProd.Location = new System.Drawing.Point(227, 268);
-            this.ttxtNombreProd.Name = "ttxtNombreProd";
-            this.ttxtNombreProd.ReadOnly = true;
-            this.ttxtNombreProd.Size = new System.Drawing.Size(133, 20);
-            this.ttxtNombreProd.TabIndex = 90;
+            this.txtEstao.Location = new System.Drawing.Point(227, 268);
+            this.txtEstao.Name = "txtEstao";
+            this.txtEstao.ReadOnly = true;
+            this.txtEstao.Size = new System.Drawing.Size(133, 20);
+            this.txtEstao.TabIndex = 90;
             // 
             // btnEliminar
             // 
@@ -214,32 +216,52 @@
             this.txtIdProducto.Size = new System.Drawing.Size(133, 20);
             this.txtIdProducto.TabIndex = 93;
             // 
+            // txtCantActual
+            // 
+            this.txtCantActual.Location = new System.Drawing.Point(227, 165);
+            this.txtCantActual.Name = "txtCantActual";
+            this.txtCantActual.ReadOnly = true;
+            this.txtCantActual.Size = new System.Drawing.Size(133, 20);
+            this.txtCantActual.TabIndex = 96;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(91, 168);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.TabIndex = 95;
+            this.label4.Text = "Cantidad actual:";
+            // 
             // FrmEditarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtCantActual);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdProducto);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.lblProd);
-            this.Controls.Add(this.ttxtNombreProd);
+            this.Controls.Add(this.txtEstao);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPrecioTot);
-            this.Controls.Add(this.txtCantidad);
+            this.Controls.Add(this.txtCantidadNueva);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblCedula);
             this.Controls.Add(this.txtPrecioUnit);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.txtFecha);
-            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtIdProd);
             this.Controls.Add(this.lblFecha);
-            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnGuardar);
             this.Name = "FrmEditarFactura";
             this.Text = "FrmEditarFactura";
+            this.Load += new System.EventHandler(this.FrmEditarFactura_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,24 +269,26 @@
 
         #endregion
 
-        public System.Windows.Forms.TextBox txtCantidad;
+        public System.Windows.Forms.TextBox txtCantidadNueva;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblCedula;
         public System.Windows.Forms.TextBox txtPrecioUnit;
         public System.Windows.Forms.TextBox txtCedula;
         public System.Windows.Forms.TextBox txtFecha;
-        public System.Windows.Forms.TextBox txtNombre;
+        public System.Windows.Forms.TextBox txtIdProd;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtPrecioTot;
         private System.Windows.Forms.Label lblProd;
-        public System.Windows.Forms.TextBox ttxtNombreProd;
+        public System.Windows.Forms.TextBox txtEstao;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtIdProducto;
+        public System.Windows.Forms.TextBox txtCantActual;
+        private System.Windows.Forms.Label label4;
     }
 }

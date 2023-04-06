@@ -72,7 +72,7 @@ namespace FerreteriaProyectoFinal.Clientes
 
 
                 FrmEditarCliente editar = new FrmEditarCliente();
-
+               
                 editar.txtNombre.Text = nombre;
                 editar.txtApellido.Text = apellidos;
                 editar.txtTelefono.Text = telefono;

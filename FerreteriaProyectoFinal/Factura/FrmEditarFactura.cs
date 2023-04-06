@@ -53,11 +53,19 @@ namespace FerreteriaProyectoFinal.Factura
             modelo.Precio = Convert.ToInt32( txtPrecioUnit.Text);
             modelo.Cedula = txtCedula.Text;
             modelo.Codigo = Convert.ToInt32(txtIdProducto.Text);
-            modelo.PrecioTotal = Convert.ToInt32(txtPrecioTot.Text)* Convert.ToInt32(txtCantidad.Text) ;
+            modelo.PrecioTotal = Convert.ToInt32(txtPrecioTot.Text)* Convert.ToInt32(txtCantidadNueva.Text) ;
             modelo.Estado = "pendiente";
-            modelo.Cantidad = Convert.ToInt32(txtCantidad.Text);
+            modelo.Cantidad = Convert.ToInt32(txtCantidadNueva.Text);
+            int cantidadActualizada = 0;
+            if(Convert.ToInt32(txtCantidadNueva.Text) >= Convert.ToInt32(txtCantActual.Text))
+            {
+                 cantidadActualizada = -Convert.ToInt32(txtCantidadNueva.Text) + Convert.ToInt32(txtCantActual.Text);
+            }else if(Convert.ToInt32(txtCantidadNueva.Text) <= Convert.ToInt32(txtCantActual.Text))
+            {
+                cantidadActualizada = Convert.ToInt32(txtCantActual.Text) - Convert.ToInt32(txtCantidadNueva.Text);
+            }
 
-            bool actualizar=ventas.ActualizarFactura(modelo,Convert.ToInt32(txtIdProducto.Text));
+            bool actualizar = ventas.ActualizarFactura(modelo, Convert.ToInt32(txtIdProducto.Text), cantidadActualizada);
 
             if (actualizar)
             {
@@ -73,6 +81,11 @@ namespace FerreteriaProyectoFinal.Factura
             }
 
            
+        }
+
+        private void FrmEditarFactura_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

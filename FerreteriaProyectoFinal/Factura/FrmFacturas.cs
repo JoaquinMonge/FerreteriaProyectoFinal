@@ -167,11 +167,11 @@ namespace FerreteriaProyectoFinal.Factura
                 FrmEditarFactura editar = new FrmEditarFactura();
 
 
-                editar.txtNombre.Text = cliente;
-                editar.txtCantidad.Text = cantidad;
+                editar.txtIdProd.Text = cliente;
+                editar.txtCantidadNueva.Text = cantidad;
                 editar.txtCedula.Text = cedula;
                 editar.txtFecha.Text = fecha;
-                editar.ttxtNombreProd.Text = producto;
+                editar.txtEstao.Text = producto;
                 editar.txtPrecioTot.Text = precioTotal;
                 editar.txtPrecioUnit.Text = total;
                 editar.txtIdProducto.Text = IDProd;

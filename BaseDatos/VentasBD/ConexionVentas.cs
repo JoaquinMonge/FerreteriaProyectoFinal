@@ -106,7 +106,7 @@ namespace BaseDatos.VentasBD
             return true;
         }
 
-        public bool ActualizarFactura(FacturaModel model, int id)
+        public bool ActualizarFactura(FacturaModel model, int id,int ctd)
         {
             conexion.Open();
             string query = "UPDATE factura SET idCliente = @idCliente, idProducto =@idProducto, precioTotal = @precioTotal, estado = @estado, precioUnitario=@precioUnitario, cantidadProducto=@cantidad WHERE idProducto = @idProducto";
@@ -132,15 +132,10 @@ namespace BaseDatos.VentasBD
                 return false;
             }
 
-            //Restar la cantidad del modelo de factura a las existencias obtenidas en la consulta
-            int cantidadActualizada = existencias - model.Cantidad;
+            
+                ActualizarExistencias(id, ctd);
+            
 
-            // Actualizar la cantidad de existencias en la tabla de inventario
-            string queryActualizarExistencias = "UPDATE inventario SET existencias = @existencias WHERE codigoProducto = @codigoProducto";
-            MySqlCommand cmdActualizarExistencias = new MySqlCommand(queryActualizarExistencias, conexion.GetConexion());
-            cmdActualizarExistencias.Parameters.AddWithValue("@existencias", cantidadActualizada);
-            cmdActualizarExistencias.Parameters.AddWithValue("@codigoProducto", id);
-            cmdActualizarExistencias.ExecuteNonQuery();
 
 
 
@@ -155,6 +150,25 @@ namespace BaseDatos.VentasBD
                 
 
             
+        }
+
+        public void ActualizarExistencias(int idProducto, int cantidad)
+        {
+            
+
+            // Obtener las existencias actuales del producto
+            string queryExistencias = "SELECT existencias FROM inventario WHERE codigoProducto = @codigoProducto";
+            MySqlCommand cmdExistencias = new MySqlCommand(queryExistencias, conexion.GetConexion());
+            cmdExistencias.Parameters.AddWithValue("@codigoProducto", idProducto);
+            int existencias = Convert.ToInt32(cmdExistencias.ExecuteScalar());
+
+            // Actualizar las existencias en la tabla de inventario
+            string queryActualizarExistencias = "UPDATE inventario SET existencias = @existencias WHERE codigoProducto = @codigoProducto";
+            MySqlCommand cmdActualizarExistencias = new MySqlCommand(queryActualizarExistencias, conexion.GetConexion());
+            cmdActualizarExistencias.Parameters.AddWithValue("@existencias", existencias + cantidad);
+            cmdActualizarExistencias.Parameters.AddWithValue("@codigoProducto", idProducto);
+            cmdActualizarExistencias.ExecuteNonQuery();
+
         }
 
 

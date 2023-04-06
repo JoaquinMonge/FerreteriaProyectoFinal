@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvGenerarFactura = new System.Windows.Forms.DataGridView();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTel = new System.Windows.Forms.Label();
@@ -38,13 +39,11 @@
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtIdFactura = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerarFactura)).BeginInit();
@@ -64,14 +63,20 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGenerarFactura.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvGenerarFactura.Location = new System.Drawing.Point(69, 177);
+            this.dgvGenerarFactura.Location = new System.Drawing.Point(12, 191);
             this.dgvGenerarFactura.Name = "dgvGenerarFactura";
-            this.dgvGenerarFactura.Size = new System.Drawing.Size(660, 194);
+            this.dgvGenerarFactura.Size = new System.Drawing.Size(776, 194);
             this.dgvGenerarFactura.TabIndex = 0;
+            this.dgvGenerarFactura.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGenerarFactura_CellContentDoubleClick);
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Producto";
+            this.Producto.Name = "Producto";
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(235, 98);
+            this.txtCorreo.Location = new System.Drawing.Point(96, 94);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(133, 20);
             this.txtCorreo.TabIndex = 75;
@@ -79,7 +84,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(99, 101);
+            this.label3.Location = new System.Drawing.Point(30, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 74;
@@ -88,7 +93,7 @@
             // lblTel
             // 
             this.lblTel.AutoSize = true;
-            this.lblTel.Location = new System.Drawing.Point(433, 62);
+            this.lblTel.Location = new System.Drawing.Point(30, 129);
             this.lblTel.Name = "lblTel";
             this.lblTel.Size = new System.Drawing.Size(52, 13);
             this.lblTel.TabIndex = 73;
@@ -97,7 +102,7 @@
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(99, 66);
+            this.lblCedula.Location = new System.Drawing.Point(432, 63);
             this.lblCedula.Name = "lblCedula";
             this.lblCedula.Size = new System.Drawing.Size(43, 13);
             this.lblCedula.TabIndex = 72;
@@ -105,53 +110,44 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(509, 59);
+            this.txtTelefono.Location = new System.Drawing.Point(96, 126);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(133, 20);
             this.txtTelefono.TabIndex = 71;
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(235, 59);
+            this.txtCedula.Location = new System.Drawing.Point(481, 60);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(133, 20);
             this.txtCedula.TabIndex = 70;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(509, 21);
+            this.txtApellido.Location = new System.Drawing.Point(249, 60);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(133, 20);
             this.txtApellido.TabIndex = 69;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(235, 21);
+            this.txtNombre.Location = new System.Drawing.Point(96, 60);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(133, 20);
             this.txtNombre.TabIndex = 68;
             // 
-            // lblApellido
-            // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(433, 21);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(47, 13);
-            this.lblApellido.TabIndex = 67;
-            this.lblApellido.Text = "Apellido:";
-            // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(99, 21);
+            this.lblNombre.Location = new System.Drawing.Point(30, 63);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.Size = new System.Drawing.Size(42, 13);
             this.lblNombre.TabIndex = 66;
-            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Text = "Cliente:";
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(509, 101);
+            this.txtFecha.Location = new System.Drawing.Point(481, 10);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(133, 20);
             this.txtFecha.TabIndex = 77;
@@ -159,7 +155,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(433, 104);
+            this.label1.Location = new System.Drawing.Point(421, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 76;
@@ -167,7 +163,7 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(566, 400);
+            this.txtTotal.Location = new System.Drawing.Point(655, 404);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(133, 20);
             this.txtTotal.TabIndex = 79;
@@ -175,20 +171,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(490, 403);
+            this.label2.Location = new System.Drawing.Point(554, 407);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 78;
             this.label2.Text = "Total a pagar:";
             // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Producto";
-            this.Producto.Name = "Producto";
-            // 
             // txtIdFactura
             // 
-            this.txtIdFactura.Location = new System.Drawing.Point(182, 136);
+            this.txtIdFactura.Location = new System.Drawing.Point(96, 13);
             this.txtIdFactura.Name = "txtIdFactura";
             this.txtIdFactura.Size = new System.Drawing.Size(133, 20);
             this.txtIdFactura.TabIndex = 81;
@@ -196,7 +187,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(106, 139);
+            this.label4.Location = new System.Drawing.Point(30, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 80;
@@ -221,7 +212,6 @@
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.dgvGenerarFactura);
             this.Name = "FrmGenerarFactura";
@@ -236,7 +226,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTel;
         private System.Windows.Forms.Label lblCedula;
-        private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView dgvGenerarFactura;
