@@ -151,74 +151,11 @@ namespace FerreteriaProyectoFinal.Factura
 
         private void dgvFacturas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dgvFacturas.Rows.Count)
-            {
-                // Obtener los valores de la fila seleccionada
-                string cedula = dgvFacturas.Rows[e.RowIndex].Cells["Cedula"].Value.ToString();
-                string cliente = dgvFacturas.Rows[e.RowIndex].Cells["Cliente"].Value.ToString();
-                string fecha = dgvFacturas.Rows[e.RowIndex].Cells["Fecha"].Value.ToString();
-                string total = dgvFacturas.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
-                string precioTotal = dgvFacturas.Rows[e.RowIndex].Cells["Precio Total"].Value.ToString();
-                string producto = dgvFacturas.Rows[e.RowIndex].Cells["Producto"].Value.ToString();
-                string cantidad = dgvFacturas.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString();
-                string IDProd = dgvFacturas.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
-
-
-                FrmEditarFactura editar = new FrmEditarFactura();
-
-
-                editar.txtIdProd.Text = cliente;
-                editar.txtCantidadNueva.Text = cantidad;
-                editar.txtCedula.Text = cedula;
-                editar.txtFecha.Text = fecha;
-                editar.txtEstao.Text = producto;
-                editar.txtPrecioTot.Text = precioTotal;
-                editar.txtPrecioUnit.Text = total;
-                editar.txtIdProducto.Text = IDProd;
-
-
-                editar.Show();
-                this.Close();
-            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            FrmConfirmarFactura confirmar = new FrmConfirmarFactura();
-
-            confirmar.dgvFacturaCliente.Columns.Add("ID", "ID");
-            confirmar.dgvFacturaCliente.Columns.Add("Fecha", "Fecha");
-            confirmar.dgvFacturaCliente.Columns.Add("Cedula", "Cedula");
-            confirmar.dgvFacturaCliente.Columns.Add("Cliente", "Cliente");
-            confirmar.dgvFacturaCliente.Columns.Add("Codigo", "Codigo");
-            confirmar.dgvFacturaCliente.Columns.Add("Producto", "Producto");
-            confirmar.dgvFacturaCliente.Columns.Add("Cantidad", "Cantidad");
-            confirmar.dgvFacturaCliente.Columns.Add("Total", "Total");
-            confirmar.dgvFacturaCliente.Columns.Add("Estado", "Estado");
-            confirmar.dgvFacturaCliente.Columns.Add("Precio Total", "Precio Total");
-            
-            
-            //id,cedula,nombre cliente fecha
-            //dgv=producto, cantidad
-            
-
-            foreach (DataGridViewRow row in dgvFacturas.Rows)
-            {
-                // Crear una nueva fila en el segundo DataGridView
-                DataGridViewRow nuevaFila = (DataGridViewRow)row.Clone();
-
-                // Agregar las celdas de la fila original a la nueva fila
-                for (int i = 0; i < row.Cells.Count; i++)
-                {
-                    nuevaFila.Cells[i].Value = row.Cells[i].Value;
-                }
-
-                // Agregar la nueva fila al segundo DataGridView
-                confirmar.dgvFacturaCliente.Rows.Add(nuevaFila);
-            }
-            confirmar.Show();
-            this.Close();
 
         }
     }

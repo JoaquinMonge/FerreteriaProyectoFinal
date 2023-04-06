@@ -8,16 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica.Inventario;
+using Logica.Ventas;
 
 namespace FerreteriaProyectoFinal.Inventario
 {
     public partial class FrmInventario : Form
     {
+        VentasBs ventas = new VentasBs();
         InventarioBs inventario=new InventarioBs(); 
         public FrmInventario()
         {
             InitializeComponent();
             dgvInventario.DataSource = inventario.ConsultaDT();
+            ventas.EliminarFacturaCtdCero();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

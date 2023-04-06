@@ -35,6 +35,7 @@
             this.btnConfirmarCompra = new System.Windows.Forms.Button();
             this.lblCedula = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,11 +97,22 @@
             this.txtCedula.Size = new System.Drawing.Size(133, 20);
             this.txtCedula.TabIndex = 73;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(654, 12);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(86, 28);
+            this.btnVolver.TabIndex = 75;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // FrmAsignarProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 450);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblCedula);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.btnConfirmarCompra);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.Button btnConfirmarCompra;
         private System.Windows.Forms.Label lblCedula;
         public System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

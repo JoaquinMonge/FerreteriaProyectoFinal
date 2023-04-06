@@ -26,7 +26,7 @@ namespace FerreteriaProyectoFinal.Usuario
             model.Nombre = txtNombreUsu.Text;
             model.Apellido = txtApellido.Text;
             model.Cedula=txtCedula.Text;
-            model.Telefono = txtCedula.Text;
+            model.Telefono = txtTelefono.Text;
             model.Usuario = txtUsuario.Text;
             model.Contrasena = txtPwd.Text;
 

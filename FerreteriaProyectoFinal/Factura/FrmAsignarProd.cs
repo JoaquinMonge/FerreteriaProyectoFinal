@@ -75,6 +75,10 @@ namespace FerreteriaProyectoFinal.Factura
                     };
                     asignarProductos.Add(producto);
                 }
+
+                Clientes.FrmClientes clientes = new Clientes.FrmClientes();
+                clientes.Show();
+                this.Close();
             }
 
             // Insertar los productos asignados en la base de datos
@@ -140,8 +144,9 @@ namespace FerreteriaProyectoFinal.Factura
                 frm.txtCorreo.Text = cliente.Correo;
                 frm.txtCedula.Text = cliente.Cedula;
                 frm.txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-
+                
                 frm.Show();
+
                 frm.dgvGenerarFactura.DataSource = ventas.ConsultaDT(Convert.ToInt32(txtCedula.Text));
 
                 frm.dgvGenerarFactura.Columns["idProducto"].HeaderText = "ID Producto";
@@ -194,6 +199,13 @@ namespace FerreteriaProyectoFinal.Factura
 
 
            
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Clientes.FrmClientes clientes = new Clientes.FrmClientes();
+            clientes.Show();
+            this.Close();
         }
     }
 }

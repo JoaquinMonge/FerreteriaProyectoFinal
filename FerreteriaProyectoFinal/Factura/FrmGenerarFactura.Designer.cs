@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdFactura = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnPagar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerarFactura)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,11 +194,22 @@
             this.label4.TabIndex = 80;
             this.label4.Text = "ID Factura:";
             // 
+            // btnPagar
+            // 
+            this.btnPagar.Location = new System.Drawing.Point(638, 146);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(139, 39);
+            this.btnPagar.TabIndex = 82;
+            this.btnPagar.Text = "Realizar pago";
+            this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
+            // 
             // FrmGenerarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.txtIdFactura);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTotal);
@@ -240,5 +252,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         public System.Windows.Forms.TextBox txtIdFactura;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnPagar;
     }
 }

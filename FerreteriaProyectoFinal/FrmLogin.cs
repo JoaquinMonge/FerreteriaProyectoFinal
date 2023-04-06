@@ -9,15 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica.Usuarios;
 using Modelos.Usuarios;
+using Logica.Ventas;
 
 namespace FerreteriaProyectoFinal
 {
     public partial class FrmLogin : Form
     {
-        
+        VentasBs ventas = new VentasBs();
         public FrmLogin()
         {
             InitializeComponent();
+            ventas.EliminarFacturaCtdCero();
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)

@@ -112,6 +112,7 @@ namespace FerreteriaProyectoFinal.Clientes
             // Abrir el formulario de asignar productos y pasar el cliente seleccionado
             FrmAsignarProd asignarProductosForm = new FrmAsignarProd(cliente);
             asignarProductosForm.Show();
+            this.Close();
 
             asignarProductosForm.txtCedula.Text = rowCliente["cedula"].ToString();
 

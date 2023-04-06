@@ -44,7 +44,7 @@ namespace BaseDatos.VentasBD
 
         public DataTable ConsultaVentas(int cedula)
         {
-             string Query = "SELECT * FROM factura WHERE idCliente = @idCliente";
+             string Query = "SELECT * FROM factura WHERE idCliente = @idCliente  AND estado = 'pendiente'";
             MySqlCommand cmd = new MySqlCommand(Query, conexion.GetConexion());
             cmd.Parameters.AddWithValue("@idCliente", cedula);
             DataTable tabla = new DataTable();
@@ -95,12 +95,30 @@ namespace BaseDatos.VentasBD
             return facturas;
         }
 
-        public bool EliminarFactura(string cedula)
+        public bool EliminarFactura(int idProd, int cantidad)
         {
             conexion.Open();
-            string query = "DELETE from factura WHERE idCliente=@cedula";
+            string query = "DELETE from factura WHERE idProducto=@idProd";
             MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
-            cmd.Parameters.AddWithValue("@cedula", cedula);
+            cmd.Parameters.AddWithValue("@idProd", idProd);
+            cmd.ExecuteNonQuery();
+
+
+            // Actualizar el inventario
+            string queryActualizarInventario = "UPDATE inventario SET existencias=existencias+@cantidad WHERE codigoProducto=@idProd";
+            MySqlCommand cmdActualizarInventario = new MySqlCommand(queryActualizarInventario, conexion.GetConexion());
+            cmdActualizarInventario.Parameters.AddWithValue("@idProd", idProd);
+            cmdActualizarInventario.Parameters.AddWithValue("@cantidad", cantidad);
+            cmdActualizarInventario.ExecuteNonQuery();
+            conexion.Close();
+            return true;
+        }
+
+        public bool EliminarFacturaCtdCero()
+        {
+            conexion.Open();
+            string query = "DELETE from factura WHERE cantidadProducto = 0";
+            MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
             cmd.ExecuteNonQuery();
             conexion.Close();
             return true;
@@ -147,8 +165,7 @@ namespace BaseDatos.VentasBD
 
 
 
-                
-
+ 
             
         }
 
@@ -169,6 +186,18 @@ namespace BaseDatos.VentasBD
             cmdActualizarExistencias.Parameters.AddWithValue("@codigoProducto", idProducto);
             cmdActualizarExistencias.ExecuteNonQuery();
 
+        }
+
+        public bool ActualizarEstado(string idFactura)
+        {
+            conexion.Open();
+            string query = "UPDATE factura SET estado=@completado WHERE idFactura=@idFactura";
+            MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
+            cmd.Parameters.AddWithValue("@idFactura", idFactura);
+            cmd.Parameters.AddWithValue("@completado", "completado");
+            cmd.ExecuteNonQuery();
+            conexion.Close();
+            return true;
         }
 
 

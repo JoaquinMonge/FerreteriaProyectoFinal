@@ -34,10 +34,10 @@ namespace FerreteriaProyectoFinal.Factura
             DialogResult dialogResult = MessageBox.Show("Esta seguro que desea eliminarlo?", "Some Title", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                ventas.EliminarFactura(txtCedula.Text);
+                ventas.EliminarFactura(Convert.ToInt32( txtIdProducto.Text),Convert.ToInt32(txtCantActual.Text));
                 MessageBox.Show("Eliminado con exito");
-                FrmFacturas factura = new FrmFacturas();
-                factura.Show();
+                Clientes.FrmClientes clientes = new Clientes.FrmClientes();
+                clientes.Show();
                 this.Close();
             }
             else if (dialogResult == DialogResult.No)

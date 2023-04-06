@@ -21,10 +21,6 @@ namespace FerreteriaProyectoFinal.Factura
             InitializeComponent();
 
 
-
-
-
-
         }
 
         public  void MostrarDatosFactura()
@@ -70,11 +66,6 @@ namespace FerreteriaProyectoFinal.Factura
                 string estado= dgvGenerarFactura.Rows[e.RowIndex].Cells["estado"].Value.ToString();
 
 
-
-
-
-
-
             editar.txtEstao.Text = estado;
             editar.txtCedula.Text = cedula;
             editar.txtCantActual.Text=cantidad;
@@ -87,6 +78,25 @@ namespace FerreteriaProyectoFinal.Factura
             editar.Show();
             this.Close();
             }
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            string idFactura = txtIdFactura.Text;
+            bool cambioEstado = ventas.ActualizarEstado(idFactura);
+            if (cambioEstado)
+            {
+                MessageBox.Show("Pago realizado con exito");
+                
+                Clientes.FrmClientes cliente = new Clientes.FrmClientes();
+                cliente.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error");
+            }
+
         }
     }
 }
