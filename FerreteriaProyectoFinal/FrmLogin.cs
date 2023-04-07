@@ -19,6 +19,7 @@ namespace FerreteriaProyectoFinal
         public FrmLogin()
         {
             InitializeComponent();
+
             ventas.EliminarFacturaCtdCero();
         }
 
@@ -36,9 +37,13 @@ namespace FerreteriaProyectoFinal
 
                 
                 MessageBox.Show("El usuario ha sido encontrado");
+
                 this.Hide();
+
                 FrmVentanaPrincipal inicio=new FrmVentanaPrincipal();
+
                 inicio.txtUsuario.Text = txtUsuario.Text;
+
                 inicio.Show();
 
 
@@ -52,8 +57,10 @@ namespace FerreteriaProyectoFinal
 
         private void lblRegistrarse_Click(object sender, EventArgs e)
         {
-            Usuario.FrmRegistrarUsuario registrar=new Usuario.FrmRegistrarUsuario();    
+            Usuario.FrmRegistrarUsuario registrar=new Usuario.FrmRegistrarUsuario();   
+            
             registrar.Show();
+
             this.Hide();
         }
 

@@ -17,6 +17,7 @@ namespace FerreteriaProyectoFinal.Clientes
     {
 
         ClientesBs cliente = new ClientesBs();
+
         FrmClientes home = new FrmClientes();
 
         public FrmEditarCliente()
@@ -27,13 +28,16 @@ namespace FerreteriaProyectoFinal.Clientes
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FrmClientes clientes = new FrmClientes();
+
             clientes.Show();
+
             this.Close();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             ClienteModel modelo = new ClienteModel();
+
             modelo.Nombre = txtNombre.Text;
             modelo.Apellidos = txtApellido.Text;
             modelo.Telefono = txtTelefono.Text;
@@ -42,6 +46,7 @@ namespace FerreteriaProyectoFinal.Clientes
 
 
             cliente.ActualizarCliente(modelo, txtCedula.Text);
+
             MessageBox.Show("Cliente editado con exito");
             this.Close();
           
@@ -51,9 +56,13 @@ namespace FerreteriaProyectoFinal.Clientes
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             string cedula = txtCedula.Text;
+
             cliente.EliminarCliente(cedula);
+
             MessageBox.Show("Cliente eliminado con exito");
+
             this.Close();
+
             home.Show();
 
 

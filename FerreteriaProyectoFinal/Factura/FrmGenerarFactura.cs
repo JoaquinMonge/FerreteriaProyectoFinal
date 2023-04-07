@@ -26,6 +26,7 @@ namespace FerreteriaProyectoFinal.Factura
         public  void MostrarDatosFactura()
         {
             dgvGenerarFactura.DataSource = ventas.ObtenerFacturas();
+
             dgvGenerarFactura.Columns["Id"].Visible = false;
             dgvGenerarFactura.Columns["Cliente"].Visible = false;
             dgvGenerarFactura.Columns["Fecha"].Visible = false;
@@ -43,6 +44,7 @@ namespace FerreteriaProyectoFinal.Factura
             foreach (DataGridViewRow row in dgvGenerarFactura.Rows)
             {
                 decimal valor = Convert.ToDecimal(row.Cells["PrecioTotal"].Value);
+
                 total += valor;
             }
             txtTotal.Text = total.ToString();
@@ -57,33 +59,35 @@ namespace FerreteriaProyectoFinal.Factura
             if (e.RowIndex >= 0 && e.RowIndex < dgvGenerarFactura.Rows.Count)
             {
                 // Obtener los valores de la fila seleccionada
-            string cedula = dgvGenerarFactura.Rows[e.RowIndex].Cells["idCliente"].Value.ToString();        
-            string total = dgvGenerarFactura.Rows[e.RowIndex].Cells["precioUnitario"].Value.ToString();
-            string precioTotal = dgvGenerarFactura.Rows[e.RowIndex].Cells["precioTotal"].Value.ToString();
-            string cantidad = dgvGenerarFactura.Rows[e.RowIndex].Cells["cantidadProducto"].Value.ToString();
-            string IDProd = dgvGenerarFactura.Rows[e.RowIndex].Cells["idProducto"].Value.ToString();
+                string cedula = dgvGenerarFactura.Rows[e.RowIndex].Cells["idCliente"].Value.ToString();        
+                string total = dgvGenerarFactura.Rows[e.RowIndex].Cells["precioUnitario"].Value.ToString();
+                string precioTotal = dgvGenerarFactura.Rows[e.RowIndex].Cells["precioTotal"].Value.ToString();
+                string cantidad = dgvGenerarFactura.Rows[e.RowIndex].Cells["cantidadProducto"].Value.ToString();
+                string IDProd = dgvGenerarFactura.Rows[e.RowIndex].Cells["idProducto"].Value.ToString();
                 string IDFactura = dgvGenerarFactura.Rows[e.RowIndex].Cells["idFactura"].Value.ToString();
                 string estado= dgvGenerarFactura.Rows[e.RowIndex].Cells["estado"].Value.ToString();
 
 
-            editar.txtEstao.Text = estado;
-            editar.txtCedula.Text = cedula;
-            editar.txtCantActual.Text=cantidad;
-            editar.txtIdProd.Text = IDFactura;
-            editar.txtPrecioTot.Text = precioTotal;
-            editar.txtPrecioUnit.Text = total;
-            editar.txtIdProducto.Text = IDProd;
+                editar.txtEstao.Text = estado;
+                editar.txtCedula.Text = cedula;
+                editar.txtCantActual.Text=cantidad;
+                editar.txtIdProd.Text = IDFactura;
+                editar.txtPrecioTot.Text = precioTotal;
+                editar.txtPrecioUnit.Text = total;
+                editar.txtIdProducto.Text = IDProd;
 
 
-            editar.Show();
-            this.Close();
+                editar.Show();
+                this.Close();
             }
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
             string idFactura = txtIdFactura.Text;
+
             bool cambioEstado = ventas.ActualizarEstado(idFactura);
+
             if (cambioEstado)
             {
                 MessageBox.Show("Pago realizado con exito");

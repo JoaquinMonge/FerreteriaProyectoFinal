@@ -50,6 +50,11 @@ namespace Logica.Ventas
             return ventas.ActualizarEstado(idFactura);
         }
 
+        public DataTable ConsultaEstado(string estado)
+        {
+            return ventas.ConsultaEstado(estado);
+        }
+
 
 
 

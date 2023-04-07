@@ -18,17 +18,18 @@ namespace FerreteriaProyectoFinal.Factura
 {
     public partial class FrmAsignarProd : Form
     {
-       
-        InventarioBs inv = new InventarioBs();
-       VentasBs ventas = new VentasBs();    
-        
+
+        private readonly InventarioBs inv = new InventarioBs();
+
+        private readonly VentasBs ventas = new VentasBs();
+
         private ClienteModel cliente;
         public FrmAsignarProd(ClienteModel cliente)
         {
             InitializeComponent();
-            dgvProductos.DataSource = inv.ConsultaDT();
 
-           
+            dgvProductos.DataSource = inv.ConsultaDT();
+     
             this.cliente = cliente;
         }
 
@@ -76,9 +77,6 @@ namespace FerreteriaProyectoFinal.Factura
                     asignarProductos.Add(producto);
                 }
 
-                Clientes.FrmClientes clientes = new Clientes.FrmClientes();
-                clientes.Show();
-                this.Close();
             }
 
             // Insertar los productos asignados en la base de datos
@@ -116,7 +114,11 @@ namespace FerreteriaProyectoFinal.Factura
             }
             
                 MessageBox.Show("Producto(s) asignados correctamente");
-            
+
+            Clientes.FrmClientes clientes = new Clientes.FrmClientes();
+            clientes.Show();
+            this.Close();
+
         }
 
         private void btnConfirmarCompra_Click(object sender, EventArgs e)
@@ -124,11 +126,6 @@ namespace FerreteriaProyectoFinal.Factura
             FrmGenerarFactura frm = new FrmGenerarFactura();
             ClientesBs clientes = new ClientesBs();
             ClienteModel cliente = clientes.ObtenerClienteID(txtCedula.Text);
-
-            
-
-
-
 
             //validar que tenga articulos
 
@@ -173,8 +170,11 @@ namespace FerreteriaProyectoFinal.Factura
                 frm.txtTotal.Text = "₡" + sumatoriaPrecioTotal.ToString();
 
                 DataGridViewRow idFact = frm.dgvGenerarFactura.Rows[0];
+
                 string idFactura = idFact.Cells["idFactura"].Value.ToString();
+
                 frm.txtIdFactura.Text = idFactura.ToString();
+
                 foreach (DataGridViewRow row in frm.dgvGenerarFactura.Rows)
                 {
                     int idProducto = Convert.ToInt32(row.Cells["idProducto"].Value);
@@ -191,11 +191,6 @@ namespace FerreteriaProyectoFinal.Factura
             {
                 MessageBox.Show("El cliente no tiene productos asignados. No se pudo generar la factura.");
             }
-
-
-
-
-
 
 
            

@@ -23,9 +23,7 @@ namespace FerreteriaProyectoFinal.Factura
         public FrmFacturas()
         {
             InitializeComponent();
-            
-
-            
+  
         }
 
         public void MostrarFacturas()
@@ -35,6 +33,7 @@ namespace FerreteriaProyectoFinal.Factura
 
             // Crear una lista de facturas con los nombres de cliente y producto
             List<FacturaModel> facturasMostradas = new List<FacturaModel>();
+
             foreach (FacturaModel factura in facturas)
             {
                 ClientesBs clientesBs = new ClientesBs();
@@ -58,6 +57,7 @@ namespace FerreteriaProyectoFinal.Factura
                 facturasMostradas.Add(facturaMostrada);
             }
             DataTable tablaFacturas = new DataTable();
+
             tablaFacturas.Columns.Add("Id", typeof(string));
             tablaFacturas.Columns.Add("Fecha", typeof(DateTime));
             tablaFacturas.Columns.Add("Cedula", typeof(string));
@@ -118,22 +118,17 @@ namespace FerreteriaProyectoFinal.Factura
             DataTable fact = (DataTable)dgvFacturas.DataSource;
 
             fact.DefaultView.RowFilter = String.Format("cedula LIKE '%{0}%'", txtBuscar.Text);
+
             decimal sumatoriaPrecioTotal = 0;
+
             foreach (DataGridViewRow row in dgvFacturas.Rows)
             {
                 decimal precioTotal = Convert.ToDecimal(row.Cells["Precio Total"].Value);
+
                 sumatoriaPrecioTotal += precioTotal;
             }
 
-            // Mostrar la sumatoria en un TextBox
-            txtToalPagar.Text = sumatoriaPrecioTotal.ToString();
-            if (txtBuscar.Text.Length == 0)
-            {
-                txtToalPagar.Text = " ";
-            }
-            txtBuscar.Text = "";
-
-            dgvFacturas.DataSource = fact;
+           
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -156,6 +151,25 @@ namespace FerreteriaProyectoFinal.Factura
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnTodos_Click(object sender, EventArgs e)
+        {
+           dgvFacturas.DataSource= ventas.ConsultaEstado(null);
+
+
+        }
+
+        private void btnPendientes_Click(object sender, EventArgs e)
+        {
+            dgvFacturas.DataSource = ventas.ConsultaEstado("pendiente");
+
+        }
+
+        private void btnCompletados_Click(object sender, EventArgs e)
+        {
+            dgvFacturas.DataSource = ventas.ConsultaEstado("completado");
 
         }
     }

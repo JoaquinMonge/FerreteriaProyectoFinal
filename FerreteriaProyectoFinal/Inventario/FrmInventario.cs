@@ -15,25 +15,32 @@ namespace FerreteriaProyectoFinal.Inventario
     public partial class FrmInventario : Form
     {
         VentasBs ventas = new VentasBs();
+
         InventarioBs inventario=new InventarioBs(); 
         public FrmInventario()
         {
             InitializeComponent();
+
             dgvInventario.DataSource = inventario.ConsultaDT();
+
             ventas.EliminarFacturaCtdCero();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+
             FrmVentanaPrincipal home=new FrmVentanaPrincipal();
+
             home.Show();
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             this.Hide();
+
             FrmRegistroProducto producto=new FrmRegistroProducto(); 
+
             producto.Show();
         }
 
@@ -76,6 +83,7 @@ namespace FerreteriaProyectoFinal.Inventario
             DataTable inv = (DataTable)dgvInventario.DataSource;
 
             inv.DefaultView.RowFilter = String.Format("nombre LIKE '%{0}%'", txtBuscar.Text);
+
             txtBuscar.Text = "";
 
             dgvInventario.DataSource = inv;

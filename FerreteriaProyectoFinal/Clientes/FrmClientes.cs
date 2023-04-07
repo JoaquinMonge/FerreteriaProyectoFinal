@@ -20,20 +20,25 @@ namespace FerreteriaProyectoFinal.Clientes
         public FrmClientes()
         {
             InitializeComponent();
+
             dgvClientes.DataSource = clientes.ConsultaDT();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+
             FrmVentanaPrincipal home = new FrmVentanaPrincipal();
+
             home.Show();
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             FrmRegistrarCliente regisrar = new FrmRegistrarCliente();
+
             regisrar.Show();
+
             this.Close();
         }
 
@@ -44,6 +49,7 @@ namespace FerreteriaProyectoFinal.Clientes
             DataTable inv = (DataTable)dgvClientes.DataSource;
 
             inv.DefaultView.RowFilter = String.Format("nombre LIKE '%{0}%'", txtBuscar.Text);
+
             txtBuscar.Text = "";
 
             dgvClientes.DataSource = inv;
@@ -53,23 +59,15 @@ namespace FerreteriaProyectoFinal.Clientes
         {
             
 
-            
-            
-
             if (e.RowIndex >= 0 && e.RowIndex < dgvClientes.Rows.Count)
             {
-               
-                  
+  
                 // Obtener los valores de la fila seleccionada
                 string cedula = dgvClientes.Rows[e.RowIndex].Cells["cedula"].Value.ToString();
-
                 string nombre = dgvClientes.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
                 string apellidos = dgvClientes.Rows[e.RowIndex].Cells["apellidos"].Value.ToString();
                 string telefono = dgvClientes.Rows[e.RowIndex].Cells["telefono"].Value.ToString();
                 string correo = dgvClientes.Rows[e.RowIndex].Cells["correo"].Value.ToString();
-
-               
-
 
                 FrmEditarCliente editar = new FrmEditarCliente();
                
@@ -78,7 +76,9 @@ namespace FerreteriaProyectoFinal.Clientes
                 editar.txtTelefono.Text = telefono;
                 editar.txtCedula.Text = cedula;
                 editar.txtCorreo.Text = correo;
+
                 editar.Show();
+
                 this.Close();
             }
         }
@@ -111,12 +111,12 @@ namespace FerreteriaProyectoFinal.Clientes
 
             // Abrir el formulario de asignar productos y pasar el cliente seleccionado
             FrmAsignarProd asignarProductosForm = new FrmAsignarProd(cliente);
+
             asignarProductosForm.Show();
+
             this.Close();
 
             asignarProductosForm.txtCedula.Text = rowCliente["cedula"].ToString();
-
-
 
         }
     }

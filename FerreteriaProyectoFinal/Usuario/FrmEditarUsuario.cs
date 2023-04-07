@@ -24,18 +24,14 @@ namespace FerreteriaProyectoFinal.Usuario
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            
-
             UsuarioModel modelo = new UsuarioModel();
-
-
-           
 
             // Pasar el modelo existente con el ID al método ActualizarUsuario
             UsuarioBs usuarioBs = new UsuarioBs();
 
             string pwd = txtPwd.Text;
             string hashedPassword = "";
+
             //documentacion microsoft SHA256 para encriptar
             using (SHA256 mySHA256 = SHA256.Create())
             {
@@ -120,8 +116,11 @@ namespace FerreteriaProyectoFinal.Usuario
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             FrmEliminarUIsuario eliminar=new FrmEliminarUIsuario();
+
             eliminar.txtUsuario.Text=txtUsuario.Text;
+
             eliminar.Show();
+
             this.Close();
             
         }

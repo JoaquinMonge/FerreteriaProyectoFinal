@@ -29,12 +29,17 @@ namespace FerreteriaProyectoFinal.Usuario
 
             model.Usuario = txtUsuario.Text;
             model.Contrasena = txtPwd.Text;
+
             UsuarioBs usuarioBs = new UsuarioBs();
+
             if (usuarioBs.consultaLogin(model))
             {
                 MessageBox.Show("Contraseña correcta");
+
                 this.Hide();
+
                 FrmEditarUsuario editar = new FrmEditarUsuario();
+
                 editar.Show();
 
                 UsuarioModel usuario = usuarioBs.ObtenerDatosUsuario(model.ID);
@@ -63,6 +68,7 @@ namespace FerreteriaProyectoFinal.Usuario
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FrmVentanaPrincipal home = new FrmVentanaPrincipal();
+
             home.txtUsuario.Text = txtUsuario.Text;
             
             home.Show();

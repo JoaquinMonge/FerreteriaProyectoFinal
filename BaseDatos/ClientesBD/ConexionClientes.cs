@@ -30,10 +30,11 @@ namespace BaseDatos.ClientesBD
 
         public bool CrearCliente(ClienteModel model)
         {
-            MySqlCommand comd = new MySqlCommand("SELECT COUNT(*) FROM clientes WHERE cedula = @cedula", conexion.GetConexion());
-            comd.Parameters.AddWithValue("@cedula", model.Cedula);
+            string query = "SELECT COUNT(*) FROM clientes WHERE cedula = @cedula";
+            MySqlCommand comando = new MySqlCommand(query, conexion.GetConexion());
+            comando.Parameters.AddWithValue("@cedula", model.Cedula);
             conexion.Open();
-            int count = Convert.ToInt32(comd.ExecuteScalar());
+            int count = Convert.ToInt32(comando.ExecuteScalar());
             conexion.Close();
 
             if (count > 0)
@@ -43,9 +44,8 @@ namespace BaseDatos.ClientesBD
             else
             {
                 conexion.Open();
-                string query = "INSERT INTO clientes (nombre, apellidos, cedula,telefono,correo) VALUES (@nombre, @apellidos, @cedula,@telefono,@correo)";
-                MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
-
+                string consulta = "INSERT INTO clientes (nombre, apellidos, cedula,telefono,correo) VALUES (@nombre, @apellidos, @cedula,@telefono,@correo)";
+                MySqlCommand cmd = new MySqlCommand(consulta, conexion.GetConexion());
 
                 cmd.Parameters.AddWithValue("@nombre", model.Nombre);
                 cmd.Parameters.AddWithValue("@apellidos", model.Apellidos);
@@ -64,8 +64,8 @@ namespace BaseDatos.ClientesBD
        public bool ActualizarCliente(ClienteModel model,string cedula)
         {
             conexion.Open();
-            string query = "UPDATE clientes SET nombre = @nombre, apellidos =@apellidos, telefono = @telefono, correo = @correo" + " WHERE cedula = @cedula";
-            MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
+            string consulta = "UPDATE clientes SET nombre = @nombre, apellidos =@apellidos, telefono = @telefono, correo = @correo" + " WHERE cedula = @cedula";
+            MySqlCommand cmd = new MySqlCommand(consulta, conexion.GetConexion());
             cmd.Parameters.AddWithValue("@nombre", model.Nombre);
             cmd.Parameters.AddWithValue("@apellidos", model.Apellidos);
             cmd.Parameters.AddWithValue("@telefono", model.Telefono);
@@ -83,8 +83,8 @@ namespace BaseDatos.ClientesBD
         public bool EliminarCliente(string cedula)
         {
             conexion.Open();
-            string query = "DELETE from clientes WHERE cedula=@cedula";
-            MySqlCommand cmd = new MySqlCommand(query, conexion.GetConexion());
+            string consulta = "DELETE from clientes WHERE cedula=@cedula";
+            MySqlCommand cmd = new MySqlCommand(consulta, conexion.GetConexion());
             cmd.Parameters.AddWithValue("@cedula", cedula);
             cmd.ExecuteNonQuery();
             conexion.Close();
@@ -93,11 +93,11 @@ namespace BaseDatos.ClientesBD
 
         public ClienteModel ObtenerClientePorId(string cedula)
         {
+            //se establece en null porque aún no se ha encontrado ningún cliente con la cédula proporcionada
             ClienteModel cliente = null;
 
-
-            string Query = "SELECT * FROM clientes WHERE cedula = @cedula";
-            MySqlCommand cmd = new MySqlCommand(Query, conexion.GetConexion());
+            string consulta = "SELECT * FROM clientes WHERE cedula = @cedula";
+            MySqlCommand cmd = new MySqlCommand(consulta, conexion.GetConexion());
             cmd.Parameters.AddWithValue("@cedula", cedula);
 
             conexion.Open();
@@ -105,6 +105,7 @@ namespace BaseDatos.ClientesBD
 
             if (reader.Read())
             {
+                //si se encontro un cliente con esa cedula, se crea un objeto ClienteModel con los datos obtenidos y se asigna a la variable cliente
                 cliente = new ClienteModel()
                 {
                     Cedula = reader["cedula"].ToString(),
@@ -116,9 +117,7 @@ namespace BaseDatos.ClientesBD
             }
 
             reader.Close();
-
             conexion.Close();
-
 
             return cliente;
         }

@@ -21,10 +21,15 @@ namespace FerreteriaProyectoFinal.Usuario
         private void btnSi_Click(object sender, EventArgs e)
         {
             UsuarioBs usuarioBs = new UsuarioBs();
+
             usuarioBs.EliminarUsuario(txtUsuario.Text);
+
             MessageBox.Show("Cuenta eliminada con exito");
+
             FrmLogin login = new FrmLogin();
-                login.Show();
+
+            login.Show();
+
             this.Close();
 
         }

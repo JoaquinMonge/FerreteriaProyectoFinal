@@ -30,6 +30,7 @@ namespace FerreteriaProyectoFinal.Clientes
         {
 
             ClienteModel model = new ClienteModel();
+
             model.Nombre = txtNombre.Text;
             model.Apellidos = txtApellido.Text;
             model.Telefono = txtTelefono.Text;
@@ -37,13 +38,17 @@ namespace FerreteriaProyectoFinal.Clientes
             model.Cedula = txtCedula.Text;
 
             IClientes clientes = new ClientesBs();
+
             bool registrado = clientes.CrearCliente(model);
 
             if (registrado)
             {
                 MessageBox.Show("El cliente fue registrado con exito");
+
                 FrmClientes home = new FrmClientes();
+
                 home.Show();
+
                 this.Close();
 
             }
@@ -57,7 +62,9 @@ namespace FerreteriaProyectoFinal.Clientes
         private void btnVolver_Click(object sender, EventArgs e)
         {
             FrmClientes clientes = new FrmClientes();
+
             clientes.Show();
+
             this.Close();
         }
     }

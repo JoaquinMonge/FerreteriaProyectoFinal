@@ -32,6 +32,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.btnCompletados = new System.Windows.Forms.Button();
+            this.btnPendientes = new System.Windows.Forms.Button();
+            this.btnTodos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,11 +76,44 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // btnCompletados
+            // 
+            this.btnCompletados.Location = new System.Drawing.Point(243, 12);
+            this.btnCompletados.Name = "btnCompletados";
+            this.btnCompletados.Size = new System.Drawing.Size(85, 28);
+            this.btnCompletados.TabIndex = 14;
+            this.btnCompletados.Text = "Completados";
+            this.btnCompletados.UseVisualStyleBackColor = true;
+            this.btnCompletados.Click += new System.EventHandler(this.btnCompletados_Click);
+            // 
+            // btnPendientes
+            // 
+            this.btnPendientes.Location = new System.Drawing.Point(361, 12);
+            this.btnPendientes.Name = "btnPendientes";
+            this.btnPendientes.Size = new System.Drawing.Size(85, 28);
+            this.btnPendientes.TabIndex = 15;
+            this.btnPendientes.Text = "Pendientes";
+            this.btnPendientes.UseVisualStyleBackColor = true;
+            this.btnPendientes.Click += new System.EventHandler(this.btnPendientes_Click);
+            // 
+            // btnTodos
+            // 
+            this.btnTodos.Location = new System.Drawing.Point(483, 12);
+            this.btnTodos.Name = "btnTodos";
+            this.btnTodos.Size = new System.Drawing.Size(85, 28);
+            this.btnTodos.TabIndex = 16;
+            this.btnTodos.Text = "Todos";
+            this.btnTodos.UseVisualStyleBackColor = true;
+            this.btnTodos.Click += new System.EventHandler(this.btnTodos_Click);
+            // 
             // FrmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnTodos);
+            this.Controls.Add(this.btnPendientes);
+            this.Controls.Add(this.btnCompletados);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
@@ -97,5 +133,8 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnCompletados;
+        private System.Windows.Forms.Button btnPendientes;
+        private System.Windows.Forms.Button btnTodos;
     }
 }

@@ -25,6 +25,7 @@ namespace FerreteriaProyectoFinal.Inventario
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             InventarioModel model = new InventarioModel();
+
             model.nombre = txtNombreProd.Text;
             model.descripcion = txtDesc.Text;
             model.precio = Convert.ToInt32(txtPrecio.Text);

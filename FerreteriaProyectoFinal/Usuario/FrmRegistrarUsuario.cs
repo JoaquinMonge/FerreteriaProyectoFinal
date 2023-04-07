@@ -23,6 +23,7 @@ namespace FerreteriaProyectoFinal.Usuario
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             UsuarioModel model = new UsuarioModel();
+
             model.Nombre = txtNombreUsu.Text;
             model.Apellido = txtApellido.Text;
             model.Cedula=txtCedula.Text;
@@ -39,8 +40,11 @@ namespace FerreteriaProyectoFinal.Usuario
                 if (registrado)
                 {
                     MessageBox.Show("El usuario fue registrado con exito");
+
                     this.Close();
+
                     FrmLogin login = new FrmLogin();
+
                     login.Show();
                 }
                 else
@@ -62,8 +66,8 @@ namespace FerreteriaProyectoFinal.Usuario
         {
             FrmLogin login = new FrmLogin();
 
-
             login.Show();
+
             this.Close();
         }
     }
