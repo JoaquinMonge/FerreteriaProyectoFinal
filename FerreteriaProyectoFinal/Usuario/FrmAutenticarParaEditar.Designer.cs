@@ -38,16 +38,20 @@
             // 
             // btnIngresar
             // 
+            this.btnIngresar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.ForeColor = System.Drawing.Color.Green;
             this.btnIngresar.Location = new System.Drawing.Point(77, 139);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(102, 23);
             this.btnIngresar.TabIndex = 9;
             this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // txtPwd
             // 
+            this.txtPwd.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtPwd.Location = new System.Drawing.Point(117, 96);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
@@ -56,8 +60,9 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.SystemColors.Control;
+            this.txtUsuario.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsuario.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtUsuario.Location = new System.Drawing.Point(12, 12);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
@@ -67,6 +72,7 @@
             // lblPwd
             // 
             this.lblPwd.AutoSize = true;
+            this.lblPwd.ForeColor = System.Drawing.Color.PapayaWhip;
             this.lblPwd.Location = new System.Drawing.Point(38, 99);
             this.lblPwd.Name = "lblPwd";
             this.lblPwd.Size = new System.Drawing.Size(61, 13);
@@ -76,6 +82,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.PapayaWhip;
             this.label1.Location = new System.Drawing.Point(47, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 13);
@@ -84,18 +91,22 @@
             // 
             // btnVolver
             // 
+            this.btnVolver.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.Green;
             this.btnVolver.Location = new System.Drawing.Point(182, 9);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 11;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // FrmAutenticarParaEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(269, 309);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.label1);

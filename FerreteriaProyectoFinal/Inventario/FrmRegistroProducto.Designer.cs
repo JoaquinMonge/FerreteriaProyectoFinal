@@ -42,15 +42,19 @@
             // 
             // btnVolver
             // 
+            this.btnVolver.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnVolver.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnVolver.Location = new System.Drawing.Point(12, 12);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(80, 25);
             this.btnVolver.TabIndex = 10;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             // 
             // txtDesc
             // 
+            this.txtDesc.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtDesc.Location = new System.Drawing.Point(131, 112);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(100, 20);
@@ -58,6 +62,7 @@
             // 
             // txtNombreProd
             // 
+            this.txtNombreProd.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtNombreProd.Location = new System.Drawing.Point(131, 65);
             this.txtNombreProd.Name = "txtNombreProd";
             this.txtNombreProd.Size = new System.Drawing.Size(100, 20);
@@ -83,6 +88,7 @@
             // 
             // txtPrecio
             // 
+            this.txtPrecio.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtPrecio.Location = new System.Drawing.Point(131, 159);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
@@ -90,6 +96,7 @@
             // 
             // txtExistencias
             // 
+            this.txtExistencias.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtExistencias.Location = new System.Drawing.Point(131, 202);
             this.txtExistencias.Name = "txtExistencias";
             this.txtExistencias.Size = new System.Drawing.Size(100, 20);
@@ -115,18 +122,22 @@
             // 
             // btnRegistrar
             // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnRegistrar.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnRegistrar.Location = new System.Drawing.Point(140, 254);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(80, 25);
             this.btnRegistrar.TabIndex = 19;
             this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // FrmRegistroProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(288, 313);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.lblExistencias);

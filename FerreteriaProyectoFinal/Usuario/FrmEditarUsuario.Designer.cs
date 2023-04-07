@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblTel = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             // 
             // txtPwd
             // 
+            this.txtPwd.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtPwd.Location = new System.Drawing.Point(175, 227);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
@@ -63,33 +63,39 @@
             // lblPwd
             // 
             this.lblPwd.AutoSize = true;
-            this.lblPwd.Location = new System.Drawing.Point(61, 230);
+            this.lblPwd.BackColor = System.Drawing.Color.Transparent;
+            this.lblPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPwd.Location = new System.Drawing.Point(44, 230);
             this.lblPwd.Name = "lblPwd";
-            this.lblPwd.Size = new System.Drawing.Size(61, 13);
+            this.lblPwd.Size = new System.Drawing.Size(71, 13);
             this.lblPwd.TabIndex = 4;
             this.lblPwd.Text = "Contraseña";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(61, 196);
+            this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(44, 196);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(203, 16);
+            this.lblUsuario.Size = new System.Drawing.Size(169, 13);
             this.lblUsuario.TabIndex = 6;
             this.lblUsuario.Text = "Ingrese la nueva contraseña";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 258);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 258);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
+            this.label1.Size = new System.Drawing.Size(127, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Confirmar contraseña";
             // 
             // txtConfirmPwd
             // 
+            this.txtConfirmPwd.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtConfirmPwd.Location = new System.Drawing.Point(175, 255);
             this.txtConfirmPwd.Name = "txtConfirmPwd";
             this.txtConfirmPwd.PasswordChar = '*';
@@ -99,16 +105,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(61, 51);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 16);
+            this.label2.Size = new System.Drawing.Size(197, 18);
             this.label2.TabIndex = 9;
             this.label2.Text = "Ingrese los nuevos datos";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(175, 82);
+            this.txtUsuario.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtUsuario.Location = new System.Drawing.Point(175, 91);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(133, 20);
@@ -117,59 +125,60 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 85);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(45, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Usuario";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(62, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 12);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Si no desea cambiarlo no lo modifique";
-            // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(378, 197);
+            this.btnGuardar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnGuardar.Location = new System.Drawing.Point(402, 197);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(133, 79);
             this.btnGuardar.TabIndex = 13;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // lblTel
             // 
             this.lblTel.AutoSize = true;
-            this.lblTel.Location = new System.Drawing.Point(325, 147);
+            this.lblTel.BackColor = System.Drawing.Color.Transparent;
+            this.lblTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTel.Location = new System.Drawing.Point(320, 146);
             this.lblTel.Name = "lblTel";
-            this.lblTel.Size = new System.Drawing.Size(52, 13);
+            this.lblTel.Size = new System.Drawing.Size(61, 13);
             this.lblTel.TabIndex = 36;
             this.lblTel.Text = "Telefono:";
             // 
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(61, 145);
+            this.lblCedula.BackColor = System.Drawing.Color.Transparent;
+            this.lblCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCedula.Location = new System.Drawing.Point(44, 145);
             this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(43, 13);
+            this.lblCedula.Size = new System.Drawing.Size(50, 13);
             this.lblCedula.TabIndex = 35;
             this.lblCedula.Text = "Cedula:";
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(378, 145);
+            this.txtTelefono.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtTelefono.Location = new System.Drawing.Point(402, 143);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(133, 20);
             this.txtTelefono.TabIndex = 34;
             // 
             // txtCedula
             // 
+            this.txtCedula.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtCedula.Location = new System.Drawing.Point(175, 143);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(133, 20);
@@ -177,13 +186,15 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(378, 115);
+            this.txtApellido.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtApellido.Location = new System.Drawing.Point(402, 118);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(133, 20);
             this.txtApellido.TabIndex = 32;
             // 
             // txtNombreUsu
             // 
+            this.txtNombreUsu.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtNombreUsu.Location = new System.Drawing.Point(175, 117);
             this.txtNombreUsu.Name = "txtNombreUsu";
             this.txtNombreUsu.Size = new System.Drawing.Size(133, 20);
@@ -192,61 +203,75 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
+            this.lblApellido.BackColor = System.Drawing.Color.Transparent;
+            this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido.Location = new System.Drawing.Point(325, 122);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(47, 13);
+            this.lblApellido.Size = new System.Drawing.Size(56, 13);
             this.lblApellido.TabIndex = 30;
             this.lblApellido.Text = "Apellido:";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(61, 120);
+            this.lblNombre.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(44, 120);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.Size = new System.Drawing.Size(54, 13);
             this.lblNombre.TabIndex = 29;
             this.lblNombre.Text = "Nombre:";
             // 
             // btnVolver
             // 
+            this.btnVolver.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnVolver.Location = new System.Drawing.Point(460, 13);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 37;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(325, 85);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(325, 94);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 38;
             this.label5.Text = "Usuario";
             // 
             // txtNuevo
             // 
-            this.txtNuevo.Location = new System.Drawing.Point(378, 78);
+            this.txtNuevo.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtNuevo.Location = new System.Drawing.Point(402, 92);
             this.txtNuevo.Name = "txtNuevo";
             this.txtNuevo.Size = new System.Drawing.Size(133, 20);
             this.txtNuevo.TabIndex = 39;
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.Red;
             this.btnEliminar.Location = new System.Drawing.Point(302, 13);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(115, 23);
             this.btnEliminar.TabIndex = 40;
             this.btnEliminar.Text = "Eliminar cuenta";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // FrmEditarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(601, 330);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtNuevo);
@@ -261,7 +286,6 @@
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -286,7 +310,6 @@
         private System.Windows.Forms.TextBox txtConfirmPwd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lblTel;
         private System.Windows.Forms.Label lblCedula;

@@ -42,7 +42,8 @@
             // lblEditarElimina
             // 
             this.lblEditarElimina.AutoSize = true;
-            this.lblEditarElimina.Location = new System.Drawing.Point(445, 45);
+            this.lblEditarElimina.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.lblEditarElimina.Location = new System.Drawing.Point(40, 46);
             this.lblEditarElimina.Name = "lblEditarElimina";
             this.lblEditarElimina.Size = new System.Drawing.Size(294, 13);
             this.lblEditarElimina.TabIndex = 5;
@@ -51,16 +52,19 @@
             // lblClientes
             // 
             this.lblClientes.AutoSize = true;
-            this.lblClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientes.Location = new System.Drawing.Point(39, 40);
+            this.lblClientes.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClientes.ForeColor = System.Drawing.Color.PapayaWhip;
+            this.lblClientes.Location = new System.Drawing.Point(37, 13);
             this.lblClientes.Name = "lblClientes";
-            this.lblClientes.Size = new System.Drawing.Size(74, 20);
+            this.lblClientes.Size = new System.Drawing.Size(121, 33);
             this.lblClientes.TabIndex = 4;
             this.lblClientes.Text = "Clientes";
             // 
             // dgvClientes
             // 
             this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClientes.BackgroundColor = System.Drawing.Color.PapayaWhip;
+            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Location = new System.Drawing.Point(43, 63);
             this.dgvClientes.Name = "dgvClientes";
@@ -71,54 +75,81 @@
             // 
             // btnVolver
             // 
+            this.btnVolver.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVolver.FlatAppearance.BorderSize = 0;
+            this.btnVolver.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnVolver.Location = new System.Drawing.Point(630, 438);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(121, 35);
             this.btnVolver.TabIndex = 8;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnEliminar.Location = new System.Drawing.Point(205, 438);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 35);
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar producto";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnRegistrar
             // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnRegistrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnRegistrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnRegistrar.Location = new System.Drawing.Point(42, 438);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(121, 35);
             this.btnRegistrar.TabIndex = 6;
             this.btnRegistrar.Text = "Registrar cliente";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.btnRegistrar.Paint += new System.Windows.Forms.PaintEventHandler(this.btnRegistrar_Paint);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(321, 34);
+            this.btnBuscar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnBuscar.Location = new System.Drawing.Point(695, 18);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(59, 24);
+            this.btnBuscar.Size = new System.Drawing.Size(56, 28);
             this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.Paint += new System.Windows.Forms.PaintEventHandler(this.btnBuscar_Paint);
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(187, 37);
+            this.txtBuscar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscar.Location = new System.Drawing.Point(516, 23);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(128, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(159, 20);
             this.txtBuscar.TabIndex = 9;
             // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 501);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBuscar);
@@ -129,6 +160,7 @@
             this.Controls.Add(this.lblClientes);
             this.Controls.Add(this.dgvClientes);
             this.Name = "FrmClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmClientes";
             this.Load += new System.EventHandler(this.FrmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();

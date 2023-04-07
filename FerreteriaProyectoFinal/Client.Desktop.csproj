@@ -188,6 +188,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Usuario\FrmAutenticarParaEditar.resx">
       <DependentUpon>FrmAutenticarParaEditar.cs</DependentUpon>
@@ -214,7 +215,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BaseDatos\BaseDatos.csproj">
       <Project>{c6a99dc6-238b-4f91-b65d-df7c8292afcd}</Project>
@@ -228,6 +228,9 @@
       <Project>{c3e45a5c-aa1d-44cf-b564-fe5b49f23a76}</Project>
       <Name>Modelos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3126649.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,7 +33,6 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAsignar = new System.Windows.Forms.Button();
             this.btnConfirmarCompra = new System.Windows.Forms.Button();
-            this.lblCedula = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -48,7 +47,7 @@
             this.Cantidad});
             this.dgvProductos.Location = new System.Drawing.Point(19, 62);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(847, 213);
+            this.dgvProductos.Size = new System.Drawing.Size(847, 277);
             this.dgvProductos.TabIndex = 0;
             // 
             // Asignar
@@ -63,57 +62,57 @@
             // 
             // btnAsignar
             // 
-            this.btnAsignar.Location = new System.Drawing.Point(516, 329);
+            this.btnAsignar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnAsignar.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignar.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnAsignar.Location = new System.Drawing.Point(608, 375);
             this.btnAsignar.Name = "btnAsignar";
-            this.btnAsignar.Size = new System.Drawing.Size(86, 28);
+            this.btnAsignar.Size = new System.Drawing.Size(115, 37);
             this.btnAsignar.TabIndex = 1;
             this.btnAsignar.Text = "Asignar";
-            this.btnAsignar.UseVisualStyleBackColor = true;
+            this.btnAsignar.UseVisualStyleBackColor = false;
             this.btnAsignar.Click += new System.EventHandler(this.btnAsignar_Click);
             // 
             // btnConfirmarCompra
             // 
-            this.btnConfirmarCompra.Location = new System.Drawing.Point(251, 329);
+            this.btnConfirmarCompra.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnConfirmarCompra.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmarCompra.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnConfirmarCompra.Location = new System.Drawing.Point(160, 375);
             this.btnConfirmarCompra.Name = "btnConfirmarCompra";
-            this.btnConfirmarCompra.Size = new System.Drawing.Size(86, 28);
+            this.btnConfirmarCompra.Size = new System.Drawing.Size(115, 37);
             this.btnConfirmarCompra.TabIndex = 2;
             this.btnConfirmarCompra.Text = "Facturar";
-            this.btnConfirmarCompra.UseVisualStyleBackColor = true;
+            this.btnConfirmarCompra.UseVisualStyleBackColor = false;
             this.btnConfirmarCompra.Click += new System.EventHandler(this.btnConfirmarCompra_Click);
-            // 
-            // lblCedula
-            // 
-            this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(184, 33);
-            this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(43, 13);
-            this.lblCedula.TabIndex = 74;
-            this.lblCedula.Text = "Cedula:";
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(320, 26);
+            this.txtCedula.Location = new System.Drawing.Point(19, 12);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(133, 20);
             this.txtCedula.TabIndex = 73;
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(654, 12);
+            this.btnVolver.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnVolver.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnVolver.Location = new System.Drawing.Point(780, 7);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(86, 28);
             this.btnVolver.TabIndex = 75;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // FrmAsignarProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(878, 450);
             this.Controls.Add(this.btnVolver);
-            this.Controls.Add(this.lblCedula);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.btnConfirmarCompra);
             this.Controls.Add(this.btnAsignar);
@@ -134,7 +133,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Asignar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.Button btnConfirmarCompra;
-        private System.Windows.Forms.Label lblCedula;
         public System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Button btnVolver;
     }

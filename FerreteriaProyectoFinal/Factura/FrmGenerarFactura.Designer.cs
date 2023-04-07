@@ -53,6 +53,7 @@
             // dgvGenerarFactura
             // 
             this.dgvGenerarFactura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGenerarFactura.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvGenerarFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGenerarFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Producto});
@@ -77,6 +78,7 @@
             // 
             // txtCorreo
             // 
+            this.txtCorreo.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtCorreo.Location = new System.Drawing.Point(96, 94);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(133, 20);
@@ -111,6 +113,7 @@
             // 
             // txtTelefono
             // 
+            this.txtTelefono.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtTelefono.Location = new System.Drawing.Point(96, 126);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(133, 20);
@@ -118,6 +121,7 @@
             // 
             // txtCedula
             // 
+            this.txtCedula.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtCedula.Location = new System.Drawing.Point(481, 60);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(133, 20);
@@ -125,6 +129,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtApellido.Location = new System.Drawing.Point(249, 60);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(133, 20);
@@ -132,6 +137,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtNombre.Location = new System.Drawing.Point(96, 60);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(133, 20);
@@ -148,6 +154,7 @@
             // 
             // txtFecha
             // 
+            this.txtFecha.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtFecha.Location = new System.Drawing.Point(481, 10);
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(133, 20);
@@ -180,6 +187,7 @@
             // 
             // txtIdFactura
             // 
+            this.txtIdFactura.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtIdFactura.Location = new System.Drawing.Point(96, 13);
             this.txtIdFactura.Name = "txtIdFactura";
             this.txtIdFactura.Size = new System.Drawing.Size(133, 20);
@@ -196,18 +204,22 @@
             // 
             // btnPagar
             // 
+            this.btnPagar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnPagar.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagar.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnPagar.Location = new System.Drawing.Point(638, 146);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(139, 39);
             this.btnPagar.TabIndex = 82;
             this.btnPagar.Text = "Realizar pago";
-            this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.UseVisualStyleBackColor = false;
             this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // FrmGenerarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.txtIdFactura);
@@ -227,6 +239,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.dgvGenerarFactura);
             this.Name = "FrmGenerarFactura";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmGenerarFactura";
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerarFactura)).EndInit();
             this.ResumeLayout(false);

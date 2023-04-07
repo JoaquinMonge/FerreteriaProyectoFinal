@@ -44,15 +44,21 @@ namespace FerreteriaProyectoFinal.Factura
         {
             List<InventarioModel> asignarProductos = new List<InventarioModel>();
 
-          
+            bool asignado = false;
+
             //Con esto se recorren las filas del DGV para agregar los productos seleccionados a la lista del cliente
             foreach (DataGridViewRow row in dgvProductos.Rows)
             {
-                if (row.Cells["Asignar"].Value != null && (bool)row.Cells["Asignar"].Value == true)
+
+
+
+                if (row.Cells["Asignar"].Value != null && (bool)row.Cells["Asignar"].Value == true
+                && row.Cells["Cantidad"].Value != null && Convert.ToInt32(row.Cells["Cantidad"].Value) > 0)
                 {
                     //Se obtiene la cantidad que digito el vendedor
                     int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
 
+                    
                     //Se obtiene la cantidad de stock del DGV
                     int stock = Convert.ToInt32(row.Cells["existencias"].Value);
 
@@ -75,8 +81,17 @@ namespace FerreteriaProyectoFinal.Factura
 
                     };
                     asignarProductos.Add(producto);
+                    asignado = true;
+                    break;
                 }
 
+               
+
+            }
+            if (!asignado)
+            {
+                MessageBox.Show("Seleccione al menos un producto y asegúrese de que la cantidad sea mayor que cero.");
+                return;
             }
 
             // Insertar los productos asignados en la base de datos

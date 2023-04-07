@@ -48,12 +48,15 @@
             // 
             // btnRegistrar
             // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnRegistrar.Location = new System.Drawing.Point(379, 197);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(206, 69);
             this.btnRegistrar.TabIndex = 29;
             this.btnRegistrar.Text = "Registrar usuario";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // lblTel
@@ -76,6 +79,7 @@
             // 
             // txtTelefono
             // 
+            this.txtTelefono.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtTelefono.Location = new System.Drawing.Point(452, 129);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(133, 20);
@@ -83,6 +87,7 @@
             // 
             // txtCedula
             // 
+            this.txtCedula.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtCedula.Location = new System.Drawing.Point(178, 129);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(133, 20);
@@ -90,6 +95,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtApellido.Location = new System.Drawing.Point(452, 91);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(133, 20);
@@ -97,6 +103,7 @@
             // 
             // txtNombreUsu
             // 
+            this.txtNombreUsu.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtNombreUsu.Location = new System.Drawing.Point(178, 91);
             this.txtNombreUsu.Name = "txtNombreUsu";
             this.txtNombreUsu.Size = new System.Drawing.Size(133, 20);
@@ -122,16 +129,20 @@
             // 
             // btnVolver
             // 
+            this.btnVolver.BackColor = System.Drawing.Color.PapayaWhip;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.SeaGreen;
             this.btnVolver.Location = new System.Drawing.Point(46, 27);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(80, 25);
             this.btnVolver.TabIndex = 20;
             this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // txtUsuario
             // 
+            this.txtUsuario.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtUsuario.Location = new System.Drawing.Point(178, 168);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(133, 20);
@@ -148,6 +159,7 @@
             // 
             // txtConfirmPwd
             // 
+            this.txtConfirmPwd.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtConfirmPwd.Location = new System.Drawing.Point(178, 243);
             this.txtConfirmPwd.Name = "txtConfirmPwd";
             this.txtConfirmPwd.PasswordChar = '*';
@@ -165,6 +177,7 @@
             // 
             // txtPwd
             // 
+            this.txtPwd.BackColor = System.Drawing.Color.PapayaWhip;
             this.txtPwd.Location = new System.Drawing.Point(178, 208);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
@@ -184,6 +197,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(676, 300);
             this.Controls.Add(this.txtConfirmPwd);
             this.Controls.Add(this.label1);
